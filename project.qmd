@@ -9,9 +9,11 @@ A major component of this course is a hands-on final project guided by students'
 Projects will be done in groups of ~5 students. Groups will be formed during an in-class project match day based on interest in the same project ideas.
 
 ## Project idea form
-*Due 02-05*.  
+*Due 09-15*.  
 
-In [this form](https://forms.cloud.microsoft/r/eAqzLSk0yd), you can submit project ideas you might be interested in working on. You can fill out ideas from the example projects listed below or one of your own ideas.
+<!--In [this form](https://forms.cloud.microsoft/r/eAqzLSk0yd), -->
+In a form, 
+you can submit project ideas you might be interested in working on. You can fill out ideas from the example projects listed below or one of your own ideas.
 For your own ideas, consider what computer system you'd like to build that processes language in some form, interesting text datasets you'd like to work on, really anything! It is best if your idea has a dataset in mind, but this is not required. 
 
 You can fill out as many ideas as you'd like with this form. Ideas do not have to be fully sketched out. Submitting an idea does mean you will necessarily work on it. These ideas will be presented to all students **anonymously**. Each student must submit at least one idea for credit on this assignment, even if it's just chosen from the example projects.
@@ -58,12 +60,12 @@ The instructor will provide data for these projects, though it may still require
 
 
 ## Project group match day
-*In class 02-11*.  
+*In class 09-22*.  
 Students will form groups of ~5 people around 
-<!--a list of submitted project ideas.-->
+a list of submitted project ideas.
 the following list of potential projects
 Note that this list of project ideas is much greater than the final number of groups will be, so not all project ideas will have groups. Come to match day with multiple project options!
-
+<!--
 ### Project idea list
 
 1. Automatically summarize movies based on their subtitles from this [dataset](https://github.com/VeerabadraLokesh/moviesubsummarize) developed by former students in the graduate NLP class here at Pitt. *This project is the same as project 4.1 in the example projects list above.*
@@ -85,13 +87,13 @@ Note that this list of project ideas is much greater than the final number of gr
 1. Predict genre or artist from song lyrics, or surface emotional cues and sentiment in song lyrics across genres.
 1. Predict whether posts came from Moltbook or Reddit.
 1. Evaluate "distilling" intelligence of large, high-performance models into smaller models and quantify the reduction in computational cost.
-
+-->
 
 ## Project proposal
-*Due 02-27*.  
+*Due 10-08*.  
 Please submit one per group on Canvas. There is no required length or format for this report. This proposal will be a report with answers to a series of questions. It will include a peer review where you will rate your own performance and the performance of other group members through 
-<!--a form.-->
-the form [here](https://forms.cloud.microsoft/r/5GcFLR57mh).
+a form.
+<!--the form [here](https://forms.cloud.microsoft/r/5GcFLR57mh).-->
 
 1. **Task**: What is the problem or task you are focusing on?
 1. **Input and output**: What is the format of the input and output of this task? For example, each input could be a sentence of text and the output could be a label from a discrete set of possible labels. Provide at least one example of input and output from your data (ideally actual input and output, but it's fine if they are made up).
@@ -110,7 +112,7 @@ the form [here](https://forms.cloud.microsoft/r/5GcFLR57mh).
 1. **Roles**: What are roles and tasks of each person in the group? Though group members will contribute in various capacities, it is best if each person is responsible for at least one aspect of the project.
 
 ## Project proposal presentation 
-*In class 03-04*.  
+*In class 10-13*.  
 Groups will make a brief presentation to the class outlining their proposed project, with Q&A and opportunities for feedback from other students. Please plan for maximum **5-minute** presentations not including Q&A, which will be held right afterward for each group. 
 A shared PowerPoint presentation will be provided for you to add your slides to.
 Please add your slides to this [shared PowerPoint presentation](https://pitt-my.sharepoint.com/:p:/g/personal/mmyoder_pitt_edu/IQB4aVgnu51JQrHZ0uNj0JvSAbTlp_gf2lb51I2CgXRC5Kk?e=Cgd9fw)
@@ -122,7 +124,7 @@ Presentations are not graded. Cover at least these key points:
 1. How you will evaluate your approach
 
 ## Progress report
-*Due 03-26*.  
+*Due 10-29*.  
 
 The progress report will contain a substantive update on your group's progress using traditional (usually n-gram based) approaches on your task, as well as a description of how you will use LLMs for your task. Please provide a specification of your problem/task and input and output. You do not have to repeat information from the project proposal except for that basic description of the project. Here are the details:
 
@@ -147,7 +149,7 @@ Please describe any open questions or challenges your group has at this point. W
 Assemble your results and writing for each part in a document to submit as a PDF on Canvas. There is no required format for this document other than being in PDF format.
 
 ## Final report 
-*Due 04-28*.  
+*Due 12-08*.  
 At the end of the course, groups will provide a written report of their project. This project includes a quantitative comparison between at least two NLP systems on a clearly specified task or tasks. One of these is generally a more traditional NLP approach and the other involves LLMs, though your group's project may vary if you have discussed this with the instructor.
 
 This report will be in the ACL format found [here](https://github.com/acl-org/acl-style-files). Feel free to use the Word or LaTeX templates (which is also available as an Overleaf template). The report should be a maximum of 8 pages, not including limitations, ethics, group member task breakdown, references sections or appendices. Feel free to include content from the project proposal and progress report. There is flexibility in section names, but please provide information about the following aspects of the project:

@@ -76,7 +76,7 @@ Fall 2026
             <td>09-08 Tu</td>
             <td>Machine learning intro, NLP tasks and applications</td>
             <td></td>
-            <td><a href="https://forms.cloud.microsoft/r/eAqzLSk0yd">Project idea form</a> out</td>
+            <td>Project idea form out</td>
         </tr>
 	<tr>
             <td colspan=5 style="text-align:center; background-color:#000057; color:white">Module 2: N-grams and statistical NLP</td>
@@ -93,7 +93,7 @@ Fall 2026
             <td>09-15 Tu</td>
             <td>N-gram language models</td>
             <td>J+M 3-3.6.2, 3.8</td>
-            <td>In-class quiz;<br/><strong><a href="https://forms.cloud.microsoft/r/eAqzLSk0yd">Project idea form</a> due</strong></td>
+            <td>In-class quiz;<br/><strong>Project idea form due</strong></td>
         </tr>
         <tr>
             <td>8</td>
