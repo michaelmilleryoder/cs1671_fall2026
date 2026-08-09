@@ -145,7 +145,7 @@ Fall 2026
             <td>10-08 Th</td>
             <td>Neural networks part 2</td>
             <td>J+M 6.5-6.6</td>
-            <td><strong><a href="project.html#project-proposal">Project proposal</a> due</strong></td>
+            <td><strong><a href="project.html#project-deliverable-1">Project deliverable 1</a> due</strong></td>
         </tr>
         <tr>
             <td>15</td>
@@ -189,7 +189,7 @@ Fall 2026
             <td>10-29 Th</td>
             <td>BERT</td>
             <td>J+M 10-10.2, 10.4-10.4.1, 10.6</td>
-            <td><strong><a href="project.html#progress-report">Project progress report</a> due</strong></td>
+            <td><strong><a href="project.html#deliverable-2">Project deliverable 2</a> due</strong></td>
         </tr>
         <tr>
             <td>21</td>
@@ -266,17 +266,18 @@ Fall 2026
 # Assessments
 Description | Points | Percentage of final grade
 ---|---:|---:
-**Homework assignments total** | **300** | **30**
-&ensp;[Homework 1](hw1) | 60 | 6
-&ensp;[Homework 2](hw2) | 120 | 12
-&ensp;[Homework 3](hw3) | 120 | 12
-**Project total** | **250** | **25**
+**Homework assignments total** | **340** | **34**
+&ensp;[Homework 1](hw1) | 70 | 7
+&ensp;[Homework 2](hw2) | 135 | 13.5
+&ensp;[Homework 3](hw3) | 135 | 13.5
+**Project total** | **300** | **30**
 &ensp;Project idea form | 5 | 0.5
-&ensp;Project proposal | 50 | 5
-&ensp;Project progress report | 55 | 5.5
-&ensp;Project report | 140 | 14
-**Quizzes total** | **150** | **15**
-&ensp;Each quiz of 7 total, lowest score dropped | 30 | 3
+&ensp;Project deliverable 1 | 55 | 5.5
+&ensp;Project deliverable 2 | 75 | 7.5
+&ensp;Project report | 160 | 16
+&ensp;Project report | 5 | 0.5
+**Quizzes total** | **60** | **6**
+&ensp;Each quiz of 7 total, lowest score dropped | 10 | 1
 **Exam** | **200** | **20**
 **Participation total** | **100** | **10**
 &ensp;Attendance | 60 | 6
@@ -303,6 +304,8 @@ The overarching learning objective of this course is for students to be able to 
 * Explain the basics of language structure that are relevant to NLP. These include syntax and semantics from linguistics 
 * Identify potential ethical pitfalls (such as imbalanced training data, model amplification of biases) in an NLP system and ways to address them 
 * Communicate motivation, key components, and implications of an approach to NLP tasks in writing 
+* Choose appropriate techniques for adapting LLMs to a use case, including prompting and finetuning
+* Be able to interpret the output of LLMs and describe their limitations
 
 # Prerequisites
 * CS 1501: Algorithms and Data Structures 2 (grade C or better)
@@ -349,7 +352,7 @@ Range | Letter grade
 Feel free to contact the instructor or schedule an office hours appointment to talk about any issues you might have with your grade.
 
 ## Late work policy
-Students are granted 5 total late days across all homework assignments and quizzes without penalty. After those five late days, you will be penalized 10% for each day that your submission is late up to a maximum of 40%.
+Students are granted 3 late days (total, across the entire semester) for homework assignments without penalty. After those late days, you will be penalized 10% for each day that your submission is late up to a maximum of 40%. No work will be accepted later than 2 weeks after the due date.
 Group project work will be penalized 10% for each day late up to a maximum of 40%. No late work will be accepted for the project report.
 
 ## Assignment resubmission policy
@@ -364,6 +367,8 @@ Students in this course will be expected to comply with the [University of Pitts
 
 For any assignment where the academic integrity policy has been violated, students will be assigned a 0 (or a failing grade, depending on the extent).
 
+Our goal is to be clear about what resources are allowed for different assessments, and you can always ask teaching staff about what is allowed.
+
 ### Generative AI policy
 You are allowed to use generative AI programs (ChatGPT, etc.) as a student in this course in limited circumstances. Since much of this course is about developing such tools in NLP, using currently available tools can expose you to the current capabilities and limitations of such systems.
 
@@ -374,7 +379,7 @@ Here are some principles to keep in mind that can help you determine whether or 
 
 * **Allowed code generation varies between homework assignments and the final project.** The learning objectives of homework assignments in this class are to be able to implement NLP systems to address specific tasks. As such, code generation is allowed for small pieces of code in homework assignments, but not for the code used for answering an entire question. Students must understand what each line of code in their submitted homework assignments is doing. The open-ended course project, in contrast, focuses more on skills of designing NLP systems for new tasks and datasets. Larger blocks of generated code are allowed in the course project.
 
-* **Cite its use.** The University of Pittsburgh's academic integrity policy applies to all uncited or improperly cited use of content, whether that work is created by human beings alone or in collaboration with a generative AI. If you use a generative AI tool to develop content for an assignment, you are required to cite the tool’s contribution to your work. In practice, cutting and pasting content from any source without citation is plagiarism. Likewise, paraphrasing content from a generative AI without citation is plagiarism. Similarly, using any generative AI tool without appropriate acknowledgement will be treated as plagiarism. See the [APA guidelines on how to cite ChatGPT](https://apastyle.apa.org/blog/how-to-cite-chatgpt). Citing your use of LLMs will also inform teaching staff on how such tools are being used in education for developing better future policies.
+* **Cite its use.** The University of Pittsburgh's academic integrity policy applies to all uncited or improperly cited use of content, whether that work is created by human beings alone or in collaboration with a generative AI. If you use a generative AI tool to develop content for an assignment, you are required to cite the tool’s contribution to your work. In practice, cutting and pasting content from any source without citation is plagiarism. Likewise, paraphrasing content from a generative AI without citation is plagiarism. Similarly, using any generative AI tool without appropriate acknowledgement will be treated as plagiarism. A link to your chat is best in your README file for assignments, but you can also refer to the [APA guidelines on how to cite ChatGPT](https://apastyle.apa.org/blog/how-to-cite-chatgpt). At a minimum, provide the name of the LLM you used. Citing your use of LLMs will also inform teaching staff on how such tools are being used in education for developing better future policies.
 
 * **You are responsible for the work you turn in.** As we will discuss in this course, LLMs and other generative AI systems can and do generate biased, socially problematic language and assert unfounded claims. Ultimately the text you submit will be treated as reflecting your own work, and you are responsible for it.
 

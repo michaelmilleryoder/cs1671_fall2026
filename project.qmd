@@ -89,9 +89,9 @@ Note that this list of project ideas is much greater than the final number of gr
 1. Evaluate "distilling" intelligence of large, high-performance models into smaller models and quantify the reduction in computational cost.
 -->
 
-## Project proposal
+## Deliverable 1
 *Due 10-08*.  
-Please submit one per group on Canvas. There is no required length or format for this report. This proposal will be a report with answers to a series of questions. It will include a peer review where you will rate your own performance and the performance of other group members through 
+Please submit one per group on Canvas. There is no required length or format for this report. This deliverable will be a report with answers to a series of questions. It will include a peer review where you will rate your own performance and the performance of other group members through 
 a form.
 <!--the form [here](https://forms.cloud.microsoft/r/5GcFLR57mh).-->
 
@@ -123,10 +123,10 @@ Presentations are not graded. Cover at least these key points:
 1. What approach/methods you plan to take
 1. How you will evaluate your approach
 
-## Progress report
+## Deliverable 2
 *Due 10-29*.  
 
-The progress report will contain a substantive update on your group's progress using traditional (usually n-gram based) approaches on your task, as well as a description of how you will use LLMs for your task. Please provide a specification of your problem/task and input and output. You do not have to repeat information from the project proposal except for that basic description of the project. Here are the details:
+Deliverable 2 will contain a substantive update on your group's progress using traditional (usually n-gram based) approaches on your task, as well as a description of how you will use LLMs for your task. Please provide a specification of your problem/task and input and output. You do not have to repeat information from the project proposal except for that basic description of the project. Here are the details:
 
 ### Part 1: Basic data analysis
 In this part, please provide the following information about your dataset. It's fine to be working with multiple datasets; just complete this for each one or for a final dataset you will be using if you are combining datasets. It's okay if you repeat information from the proposal for this; just be sure it's information on the final dataset you are using for analysis.
@@ -195,7 +195,7 @@ Here is the rubric that will be used in grading:
 
 
 ## Final presentation
-*In class 05-01, 10-11:50am*.  
+*In class, date and time TBD*.  
 Groups will present their finished work to the group, with Q&A and feedback opportunities from students. Please prepare a maximum 7-minute presentation. 
 A shared PowerPoint presentation will be provided to add your group's slides to.
 <!--Add your slides to this [shared PowerPoint presentation](https://pitt-my.sharepoint.com/:p:/g/personal/mmyoder_pitt_edu/EdWBs5h0nvRDrqPWUMMPCzgB4c3HkyySL47wUw1DY0y2bw?e=T0kmWQ).-->

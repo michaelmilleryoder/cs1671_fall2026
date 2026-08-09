@@ -9,8 +9,8 @@ website:
   title: "CS 1671 / CS 2071 Human Language Technologies, Fall 2026"
   navbar:
     left:
-      - href: index.qmd
-        text: Home
+      - href: project.qmd
+        text: Project
 
 format:
   html:
