@@ -274,7 +274,8 @@ Description | Points | Percentage of final grade
 &ensp;Project idea form | 5 | 0.5
 &ensp;Project deliverable 1 | 55 | 5.5
 &ensp;Project deliverable 2 | 75 | 7.5
-&ensp;Project report | 160 | 16
+&ensp;Final report | 160 | 16
+&ensp;Final presentation | 5 | 0.5
 **Quizzes total** | **60** | **6**
 &ensp;Each quiz of 7 total, lowest score dropped | 10 | 1
 **Exam** | **200** | **20**
