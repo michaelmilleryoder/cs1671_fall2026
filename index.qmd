@@ -308,7 +308,8 @@ The overarching learning objective of this course is for students to be able to 
 * Be able to interpret the output of LLMs and describe their limitations
 
 # Prerequisites
-* CS 1501: Algorithms and Data Structures 2 (grade C or better)
+* CS 1501 Algorithms and Data Structures 2 (grade C or better)
+* MATH 280 Introduction to Matrices and Linear Algebra, or MATH 1180 Linear Algebra 1
 * Some basic Python knowledge will be assumed. If you are not familiar with Python, see the learning resources below.
 
 # Learning resources
