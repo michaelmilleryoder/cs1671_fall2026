@@ -51,7 +51,7 @@ Fall 2026
         <tr>
             <td>2</td>
             <td>08-27 Th</td>
-            <td>Python for data science</td>
+            <td><a href="slides/session2_cs1671_fall2026.pdf">Python for data science</a></td>
             <td></td>
             <td></td>
         </tr>
