@@ -21,10 +21,7 @@ Fall 2026
 |TA office hours| Tuesdays 9-10am on Zoom|
 |Textbook (free online)|[[J+M] Jurafsky and Martin, *Speech and Language Processing*, 3e draft, 2026-08-19](https://web.stanford.edu/~jurafsky/slp3)|
 |CRCD class environment path| /ix1/cs1671-2026f/class-env/.pixi/envs/default
-
-<!--
-|Class notebooks |[CRCD JupyterHub nbgitpuller link](https://jupyter.crc.pitt.edu/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2Fmichaelmilleryoder%2Fcs1671_spring2026_jupyterhub&urlpath=lab%2Ftree%2Fcs1671_spring2026_jupyterhub%2F&branch=main) (Pitt login required, public link to source [here](https://github.com/michaelmilleryoder/cs1671_spring2026_jupyterhub)).|
--->
+|Class notebooks |[CRCD JupyterHub nbgitpuller link](https://jupyter.crc.pitt.edu/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2Fmichaelmilleryoder%2Fcs1671_fall2026_jupyterhub&urlpath=lab%2Ftree%2Fcs1671_fall2026_jupyterhub%2F&branch=main) (Pitt login required, public link to source [here](https://github.com/michaelmilleryoder/cs1671_fall2026_jupyterhub)).|
 
 
 # Schedule
