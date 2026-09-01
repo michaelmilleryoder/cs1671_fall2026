@@ -58,7 +58,7 @@ Fall 2026
         <tr>
             <td>3</td>
             <td>09-01 Tu</td>
-            <td>Words, tokens, and preprocessing</td>
+            <td><a href="slides/session3_cs1671_fall2026.pdf">Words, tokens, and preprocessing</a></td>
             <td>J+M 2-2.6, 2.8, 2.10</td>
             <td>HW1 out 09-02</td>
         </tr>
