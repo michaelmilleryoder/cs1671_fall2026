@@ -1,0 +1,188 @@
+---
+title: "Homework 1: Text and string processing in Python"
+---
+
+**Due 2026-09-17, 11:59pm**. *Instructions last updated 2026-09-02.*
+
+In this first assignment, you'll learn and practice some coding skills that will help you deal with text data for NLP. You will be reading/writing files, using regular expressions, and processing strings in Python. 
+Use Python 3 and any Python packages you like.
+
+## Learning objectives
+After completing this assignments, you will be able to:
+
+* Load in text files into different data structures in Python
+* Use regular expressions in Python to find and manipulate strings
+* Write Python code to produce basic statistics about a dataset of text
+* Specify the Python software environment you used to run a script
+
+## Resources to download
+
+### Skeleton code
+Please download and add all your answers to the following Python script template file.
+It is a "skeleton" script where only the formatting is provided and you fill in the code for the rest of the file.
+
+* <a href="hw1/hw1_skeleton.py" download>hw1_skeleton.py</a>
+
+Please use a version of Python 3 to run your filled-out script. You do not have to run things on the CRCD JupyterHub unless you want to. You can just fill out and test your script locally on your own computer.
+
+We encourage you to use a Python virtual environment to code this and future course assignments. Virtual environments are a way to isolate your code and its dependencies. This is helpful for being able to reproduce the same results and share code with others. 
+There are many tools available to help manage Python virtual environments, including [Pixi](http://pixi.sh), which we used in class. See slides from the first few sessions for some useful commands on setting up environments with Pixi.
+Feel free to use other tools, such as the [`venv` module](https://docs.python.org/3/library/venv.html)  and the pip package downloader to create and manage virtual environments in Python.
+
+One of the deliverables for this assignment is to specify the packages and package versions in the Python environment you used while running your code.
+This is most straightforward within a virtual environment, though you can provide all the Python packages installed on your system as an alternative.
+
+### Data
+For Part 1, you will need the following text file:
+
+* <a href="hw1/spanish_test.txt" download>spanish_test.txt</a>
+
+For Part 3, you will need a small dataset of wine reviews.
+You can download it and unpack it in a terminal as follows:
+
+```
+$ wget http://computational-linguistics-class.org/homework/python-and-bash/data.tgz
+$ tar -xzvf data.tgz 
+$ ls data
+stopwords.txt    wine.txt
+```
+
+
+## Part 1: File input/output (I/O)
+Given a file, it is important to know how to open, read, and write using Python functions: `open()`, `read()`, and `write()`. The `read()` function returns the entire contents of the file as a string.
+It is often useful to read each line of a file into a list. You can do this with the `readlines()` function, which will split on the newline character and return the lines as a list, presevering the newline character. 
+You can also use the `splitlines()` function, which will remove the newline characters.
+
+Take some time to also read through the `encoding` argument for [`open()`](https://docs.python.org/3/library/functions.html#open) as that can be a source of trouble for files that aren't being read in properly.
+
+Here's some example code for reading and writing files in Python:
+```
+# read files
+with open('test.txt') as f:
+    contents = f.read().splitlines()
+for s in contents:
+    print(s)
+
+# write files
+with open('test.txt', 'w')
+    for s in ['line1', 'line2', 'line3', 'line4'] :
+        file.write(s+'\n')
+```
+
+Often we would like to associate metadata (such as a label) with lines or chunks of text in NLP. 
+One way of doing this is by formatting the data as a table or spreadsheet (a CSV, comma-separated value, file) with the text in a column and other columns of metadata about that text.
+
+Fill in the `text_to_csv` function in `hw1_skeleton.py`.
+You can use the [`csv` module](https://docs.python.org/3/library/csv.html) or the more powerful [`pandas` package](https://pandas.pydata.org/docs/index.html#), particularly the [`read_csv`](https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html#csv-text-files) and [`to_csv`](https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html#writing-to-csv-format) methods to handle data in CSV format.
+In this function, please fill out code to read in the `spanish_test.txt` file and produce a CSV file with the following columns:
+
+* `line_id`: an integer ID column for each line, starting from 1 and continuing.
+* `text`: the text of the line, without any newline character included
+* `character_length`: the number of characters (length) of the line, including whitespace (but not the newline characters you removed from the `text` column). See the Python [string module](https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html#writing-to-csv-format) or [Pandas string functions](https://pandas.pydata.org/docs/user_guide/text.html#string-methods).
+
+Include column headers on the first line. Save this CSV file as `spanish_test.csv`. It will be part of your final submission.
+
+
+## Part 2: Regular expressions
+Regular expressions are a powerful way to process text by describing text patterns. Here are useful resources you may need: 
+
+* A fancy [website](https://regex101.com/) to test your regex. 
+* Python [re](https://docs.python.org/3/library/re.html) package that provides many regular expression functions for use.
+* [Chapter 2](https://web.stanford.edu/~jurafsky/slp3/2.pdf) of the textbook
+* A tutorial on [regular expression lookaheads and lookbehinds](https://www.regular-expressions.info/lookaround.html)
+
+```
+# match patterns in given string
+import re
+pattern = 'pitt'
+test_string = 'pittsburgh'
+result = re.match(pattern, test_string)
+if result:
+    print("Search successful.")
+else:
+    print("Search unsuccessful.") 
+```
+
+In this part, you need to fill in the functions `check_for_foo_or_bar` and `replace_rgb` in the skeleton script.
+
+**2.1.** Check whether the input string meets the following condition. *Useful documentation*: [Python match objects](https://docs.python.org/3/library/re.html#match-objects)
+
+* The string must have both the word `foo` and the word `bar` in it, whitespace- or punctuation-delimited from other words. (not, e.g., words like `foobar` or `bart` that merely contain the word bar). You only need to match lowercase `foo` and `bar`, though it is okay if you also match any capitalized letters within `foo` or `bar` (either is acceptable).
+* Return True if the condition is met, false otherwise.
+
+**2.2.** Replace all RGB or hex colors with the word COLOR. *Useful documentation*: [Python regular expression substitutions](https://docs.python.org/3/library/re.html#re.sub). It is fine to run multiple regular expressions substitutions if you like.
+
+* Possible example formats for a color string: `#0b013a`, `#37EfaA`, `rgb(1, 1, 1)`, `rgb(255, 19, 32)`, `rgb(00, 001, 18.0)`, or `rgb(0.1, 0.5, 1.0)`. 
+* Note that there is no need to try other formats that are not listed above. There is also no need to validate the ranges of the rgb values.
+* However, you should make sure all numbers are indeed valid numbers. For example, `#xyzxyz` should return false as these are not valid hex digits. Similarly, `rgb(c00l, 255, 255)` should return false.
+* Only replace matching colors which are at the beginning or end of the line, or are space separated from the text around them. For example, due to the trailing period: `I like rgb(1, 2, 3) and rgb(2, 3, 4).` becomes `I like COLOR and rgb(2, 3, 4).`
+* Return the full text with all RGB or hex colors replaced with the word `COLOR`.
+
+## Part 3: Text Processing in Python
+
+For this part, you will use a small data set of wine reviews (see the [Data](#data) section above for download instructions).
+You can use `pandas` or some other way to load and manipulate the files.
+
+`wine.txt` is in the format of one review per line, followed by a star rating between 1 and 5 (except for 3 reviews, where the review decided to go rogue and give 6 stars. Pft.) The text of the review and the star rating are separated by a single tab character. There is also a file called `stopwords.txt`, which you will use for question 3.6.
+
+`wine.txt` is also a little peculiar in its format. The encoding of the text file is `Latin1` / `ISO-8859-1` and depending on the OS of your machine, the default encoding used when running `open()` may be this encoding or it could be `utf-8` (the default encoding on Linux for example). To ensure compatibility specify the encoding when you read in text files.
+
+In the `wine_text_processing` function in `hw1_skeleton.py`, write code that answers each of the following questions and prints the answer to standard output, followed by a newline. If you get this output it’s very likely your code works correctly! For questions where there are ties, please break the tie alphabetically (e.g. apple would come before banana). We highly recommend looking into the functions available in the Python [string module](https://docs.python.org/3/library/string.html).
+
+You will need to write your code in the `wine_text_processing` function in the `hw1_skeleton.py` file to answer the following questions. Please note that you need to print out the answers to each of the following questions, like below:
+
+```
+Question 3.1 outputs: `your answer`.
+ 
+Question 3.2 outputs: `your answer`.
+ 
+Question 3.3 outputs: `your answer`.
+...
+```
+
+You can choose how you split the text into words (tokenize) or otherwise identify the words in the following questions. It is recommended to use a tokenization tool. Any packages may be imported to aid in tokenization. It does not matter how efficient your code is.
+
+
+**3.1.** What is the distribution of star ratings? Specifically, this is the counts of reviews per each star value (1 star, 2 star, etc).
+
+**3.2.** What are the 10 most common words used across all of the reviews, and how many times is each used? Don't include stars in the review, but it is okay to include other punctuation if you like. Keep words in their original case (don't lowercase yet). The most common words can be given in any format (this will be manually graded).
+
+**3.3.** How many times does the word `a` appear?
+
+**3.4.** How many times does the word `fruit` appear?
+
+**3.5.** How many times does the word `mineral` appear?
+
+**3.6.** Common words (like `a`) are not as interesting as uncommon words (like `mineral`). In natural language processing, we call these common words *stop words* and often remove them before we process text. `stopwords.txt` gives you a list of some very common words. Remove these stopwords from your reviews. Also, try converting all the words to lowercase (since we probably don’t want to count `fruit` and `Fruit` as two different words). Now what are the 10 most common words across all of the reviews, and how many times is each used?
+
+**3.7.** You should continue to use the preprocessed reviews for the following questions (lowercased, no stopwords). What are the 10 most used words among the 5-star reviews, and how many times is each used?
+
+**3.8.** What are the 10 most used words among the 1-star reviews, and how many times is each used?
+
+**3.9.** Gather two sets of reviews: 1) Those that use the word `red` and 2) those that use the word `white`. What are the 10 most frequent words in the `red` reviews which do **not** appear in the `white` reviews?
+
+**3.10.** What are the 10 most frequent words in the `white` reviews which do **not** appear in the `red` reviews?
+
+<!--
+Note: you can compare your answers against the key to see if you have done things correctly, but we will ultimately be running your code on a different input file.
+-->
+
+## Deliverables
+* Your output CSV from Part 1, named `spanish_test.csv`
+* A modified `hw1_skeleton.py` file that contains your solutions.
+* A README.txt file explaining
+	1. what version of Python you used
+	2. any additional resources, references, or web pages you've consulted
+	3. any person with whom you've discussed the assignment and describe the nature of your discussions
+	4. any generative AI tool used, and how it was used
+	5. any unresolved issues or problems
+* A `pyproject.toml`, `requirements.txt` or other file listing all Python packages and their versions in your environment (or on your system if you did not use a virtual environment). 
+
+Please submit this material on Canvas as individual files. If you used Jupyter Notebook to complete the assignment, please download it as a `.py` script to submit.
+
+## Grading
+We will be running your code on a different input file to test its performance.
+<!-- See Canvas for a rubric. -->
+
+## Acknowledgments
+This assignment is adapted from Prof. Mark Yatskar and Prof. Lorraine Li.

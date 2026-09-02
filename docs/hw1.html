@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Homework 1: Text and string processing in Python – CS 1671 / CS 2071 Human Language Technologies, Fall 2026</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-a09f8f9c4b7da7079d5e1ef846e64efc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">CS 1671 / CS 2071 Human Language Technologies, Fall 2026</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./project.html"> 
+<span class="menu-text">Project</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./hw1.html" aria-current="page"> 
+<span class="menu-text">HW1</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning objectives</a></li>
+  <li><a href="#resources-to-download" id="toc-resources-to-download" class="nav-link" data-scroll-target="#resources-to-download">Resources to download</a>
+  <ul class="collapse">
+  <li><a href="#skeleton-code" id="toc-skeleton-code" class="nav-link" data-scroll-target="#skeleton-code">Skeleton code</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
+  </ul></li>
+  <li><a href="#part-1-file-inputoutput-io" id="toc-part-1-file-inputoutput-io" class="nav-link" data-scroll-target="#part-1-file-inputoutput-io">Part 1: File input/output (I/O)</a></li>
+  <li><a href="#part-2-regular-expressions" id="toc-part-2-regular-expressions" class="nav-link" data-scroll-target="#part-2-regular-expressions">Part 2: Regular expressions</a></li>
+  <li><a href="#part-3-text-processing-in-python" id="toc-part-3-text-processing-in-python" class="nav-link" data-scroll-target="#part-3-text-processing-in-python">Part 3: Text Processing in Python</a></li>
+  <li><a href="#deliverables" id="toc-deliverables" class="nav-link" data-scroll-target="#deliverables">Deliverables</a></li>
+  <li><a href="#grading" id="toc-grading" class="nav-link" data-scroll-target="#grading">Grading</a></li>
+  <li><a href="#acknowledgments" id="toc-acknowledgments" class="nav-link" data-scroll-target="#acknowledgments">Acknowledgments</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Homework 1: Text and string processing in Python</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><strong>Due 2026-09-17, 11:59pm</strong>. <em>Instructions last updated 2026-09-02.</em></p>
+<p>In this first assignment, you’ll learn and practice some coding skills that will help you deal with text data for NLP. You will be reading/writing files, using regular expressions, and processing strings in Python. Use Python 3 and any Python packages you like.</p>
+<section id="learning-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h2>
+<p>After completing this assignments, you will be able to:</p>
+<ul>
+<li>Load in text files into different data structures in Python</li>
+<li>Use regular expressions in Python to find and manipulate strings</li>
+<li>Write Python code to produce basic statistics about a dataset of text</li>
+<li>Specify the Python software environment you used to run a script</li>
+</ul>
+</section>
+<section id="resources-to-download" class="level2">
+<h2 class="anchored" data-anchor-id="resources-to-download">Resources to download</h2>
+<section id="skeleton-code" class="level3">
+<h3 class="anchored" data-anchor-id="skeleton-code">Skeleton code</h3>
+<p>Please download and add all your answers to the following Python script template file. It is a “skeleton” script where only the formatting is provided and you fill in the code for the rest of the file.</p>
+<ul>
+<li><a href="hw1/hw1_skeleton.py" download="">hw1_skeleton.py</a></li>
+</ul>
+<p>Please use a version of Python 3 to run your filled-out script. You do not have to run things on the CRCD JupyterHub unless you want to. You can just fill out and test your script locally on your own computer.</p>
+<p>We encourage you to use a Python virtual environment to code this and future course assignments. Virtual environments are a way to isolate your code and its dependencies. This is helpful for being able to reproduce the same results and share code with others. There are many tools available to help manage Python virtual environments, including <a href="http://pixi.sh">Pixi</a>, which we used in class. See slides from the first few sessions for some useful commands on setting up environments with Pixi. Feel free to use other tools, such as the <a href="https://docs.python.org/3/library/venv.html"><code>venv</code> module</a> and the pip package downloader to create and manage virtual environments in Python.</p>
+<p>One of the deliverables for this assignment is to specify the packages and package versions in the Python environment you used while running your code. This is most straightforward within a virtual environment, though you can provide all the Python packages installed on your system as an alternative.</p>
+</section>
+<section id="data" class="level3">
+<h3 class="anchored" data-anchor-id="data">Data</h3>
+<p>For Part 1, you will need the following text file:</p>
+<ul>
+<li><a href="hw1/spanish_test.txt" download="">spanish_test.txt</a></li>
+</ul>
+<p>For Part 3, you will need a small dataset of wine reviews. You can download it and unpack it in a terminal as follows:</p>
+<pre><code>$&nbsp;wget&nbsp;http://computational-linguistics-class.org/homework/python-and-bash/data.tgz
+$&nbsp;tar&nbsp;-xzvf&nbsp;data.tgz&nbsp;
+$&nbsp;ls&nbsp;data
+stopwords.txt&nbsp;&nbsp;&nbsp;&nbsp;wine.txt</code></pre>
+</section>
+</section>
+<section id="part-1-file-inputoutput-io" class="level2">
+<h2 class="anchored" data-anchor-id="part-1-file-inputoutput-io">Part 1: File input/output (I/O)</h2>
+<p>Given a file, it is important to know how to open, read, and write using Python functions: <code>open()</code>, <code>read()</code>, and <code>write()</code>. The <code>read()</code> function returns the entire contents of the file as a string. It is often useful to read each line of a file into a list. You can do this with the <code>readlines()</code>&nbsp;function, which will split on the newline character and return the lines as a list, presevering the newline character. You can also use the <code>splitlines()</code> function, which will remove the newline characters.</p>
+<p>Take some time to also read through the <code>encoding</code> argument for <a href="https://docs.python.org/3/library/functions.html#open"><code>open()</code></a> as that can be a source of trouble for files that aren’t being read in properly.</p>
+<p>Here’s some example code for reading and writing files in Python:</p>
+<pre><code># read files
+with open('test.txt') as f:
+  &nbsp; contents = f.read().splitlines()
+for s in contents:
+  &nbsp; print(s)
+
+# write files
+with open('test.txt', 'w')
+    for s in ['line1', 'line2', 'line3', 'line4'] :
+        file.write(s+'\n')</code></pre>
+<p>Often we would like to associate metadata (such as a label) with lines or chunks of text in NLP. One way of doing this is by formatting the data as a table or spreadsheet (a CSV, comma-separated value, file) with the text in a column and other columns of metadata about that text.</p>
+<p>Fill in the <code>text_to_csv</code> function in <code>hw1_skeleton.py</code>. You can use the <a href="https://docs.python.org/3/library/csv.html"><code>csv</code> module</a> or the more powerful <a href="https://pandas.pydata.org/docs/index.html#"><code>pandas</code> package</a>, particularly the <a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html#csv-text-files"><code>read_csv</code></a> and <a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html#writing-to-csv-format"><code>to_csv</code></a> methods to handle data in CSV format. In this function, please fill out code to read in the <code>spanish_test.txt</code> file and produce a CSV file with the following columns:</p>
+<ul>
+<li><code>line_id</code>: an integer ID column for each line, starting from 1 and continuing.</li>
+<li><code>text</code>: the text of the line, without any newline character included</li>
+<li><code>character_length</code>: the number of characters (length) of the line, including whitespace (but not the newline characters you removed from the <code>text</code> column). See the Python <a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html#writing-to-csv-format">string module</a> or <a href="https://pandas.pydata.org/docs/user_guide/text.html#string-methods">Pandas string functions</a>.</li>
+</ul>
+<p>Include column headers on the first line. Save this CSV file as <code>spanish_test.csv</code>. It will be part of your final submission.</p>
+</section>
+<section id="part-2-regular-expressions" class="level2">
+<h2 class="anchored" data-anchor-id="part-2-regular-expressions">Part 2: Regular expressions</h2>
+<p>Regular expressions are a powerful way to process text by describing text patterns. Here are useful resources you may need:</p>
+<ul>
+<li>A fancy&nbsp;<a href="https://regex101.com/">website</a>&nbsp;to test your regex.</li>
+<li>Python&nbsp;<a href="https://docs.python.org/3/library/re.html">re</a>&nbsp;package that provides many regular expression functions for use.</li>
+<li><a href="https://web.stanford.edu/~jurafsky/slp3/2.pdf">Chapter 2</a> of the textbook</li>
+<li>A tutorial on <a href="https://www.regular-expressions.info/lookaround.html">regular expression lookaheads and lookbehinds</a></li>
+</ul>
+<pre><code># match patterns in given string
+import re
+pattern = 'pitt'
+test_string = 'pittsburgh'
+result = re.match(pattern, test_string)
+if result:
+    print("Search successful.")
+else:
+    print("Search unsuccessful.") </code></pre>
+<p>In this part, you need to fill in the functions&nbsp;<code>check_for_foo_or_bar</code>&nbsp;and&nbsp;<code>replace_rgb</code>&nbsp;in the skeleton script.</p>
+<p><strong>2.1.</strong> Check whether the input string meets the following condition. <em>Useful documentation</em>: <a href="https://docs.python.org/3/library/re.html#match-objects">Python match objects</a></p>
+<ul>
+<li>The string must have both the word&nbsp;<code>foo</code>&nbsp;and the word&nbsp;<code>bar</code>&nbsp;in it, whitespace- or punctuation-delimited from other words. (not, e.g., words like&nbsp;<code>foobar</code>&nbsp;or&nbsp;<code>bart</code>&nbsp;that merely contain the word&nbsp;bar). You only need to match lowercase <code>foo</code> and <code>bar</code>, though it is okay if you also match any capitalized letters within <code>foo</code> or <code>bar</code> (either is acceptable).</li>
+<li>Return True if the condition is met, false otherwise.</li>
+</ul>
+<p><strong>2.2.</strong> Replace all RGB or hex colors with the word&nbsp;COLOR. <em>Useful documentation</em>: <a href="https://docs.python.org/3/library/re.html#re.sub">Python regular expression substitutions</a>. It is fine to run multiple regular expressions substitutions if you like.</p>
+<ul>
+<li>Possible example formats for a color string:&nbsp;<code>#0b013a</code>,&nbsp;<code>#37EfaA</code>,&nbsp;<code>rgb(1, 1, 1)</code>,&nbsp;<code>rgb(255, 19, 32)</code>,&nbsp;<code>rgb(00, 001, 18.0)</code>, or&nbsp;<code>rgb(0.1, 0.5, 1.0)</code>.</li>
+<li>Note that there is no need to try other formats that are not listed above. There is also no need to validate the ranges of the rgb values.</li>
+<li>However, you should make sure all numbers are indeed valid numbers. For example,&nbsp;<code>#xyzxyz</code>&nbsp;should return false as these are not valid hex digits. Similarly,&nbsp;<code>rgb(c00l, 255, 255)</code>&nbsp;should return false.</li>
+<li>Only replace matching colors which are at the beginning or end of the line, or are space separated from the text around them. For example, due to the trailing period:&nbsp;<code>I like rgb(1, 2, 3) and rgb(2, 3, 4).</code>&nbsp;becomes&nbsp;<code>I like COLOR and rgb(2, 3, 4).</code></li>
+<li>Return the full text with all RGB or hex colors replaced with the word&nbsp;<code>COLOR</code>.</li>
+</ul>
+</section>
+<section id="part-3-text-processing-in-python" class="level2">
+<h2 class="anchored" data-anchor-id="part-3-text-processing-in-python">Part 3: Text Processing in Python</h2>
+<p>For this part, you will use a small data set of wine reviews (see the <a href="#data">Data</a> section above for download instructions). You can use <code>pandas</code> or some other way to load and manipulate the files.</p>
+<p><code>wine.txt</code>&nbsp;is in the format of one review per line, followed by a star rating between 1 and 5 (except for 3 reviews, where the review decided to go rogue and give 6 stars. Pft.) The text of the review and the star rating are separated by a single tab character. There is also a file called&nbsp;<code>stopwords.txt</code>, which you will use for question 3.6.</p>
+<p><code>wine.txt</code> is also a little peculiar in its format. The encoding of the text file is <code>Latin1</code> / <code>ISO-8859-1</code> and depending on the OS of your machine, the default encoding used when running <code>open()</code> may be this encoding or it could be <code>utf-8</code> (the default encoding on Linux for example). To ensure compatibility specify the encoding when you read in text files.</p>
+<p>In the&nbsp;<code>wine_text_processing</code>&nbsp;function in&nbsp;<code>hw1_skeleton.py</code>, write code that answers each of the following questions and prints the answer to standard output, followed by a newline. If you get this output it’s very likely your code works correctly! For questions where there are ties, please break the tie alphabetically (e.g.&nbsp;apple would come before banana). We highly recommend looking into the functions available in the Python&nbsp;<a href="https://docs.python.org/3/library/string.html">string module</a>.</p>
+<p>You will need to write your code in the&nbsp;<code>wine_text_processing</code>&nbsp;function in the <code>hw1_skeleton.py</code>&nbsp;file to answer the following questions. Please note that you need to print out the answers to each of the following questions, like below:</p>
+<pre><code>Question&nbsp;3.1&nbsp;outputs:&nbsp;`your&nbsp;answer`.
+&nbsp;
+Question&nbsp;3.2&nbsp;outputs:&nbsp;`your&nbsp;answer`.
+&nbsp;
+Question&nbsp;3.3&nbsp;outputs:&nbsp;`your&nbsp;answer`.
+...</code></pre>
+<p>You can choose how you split the text into words (tokenize) or otherwise identify the words in the following questions. It is recommended to use a tokenization tool. Any packages may be imported to aid in tokenization. It does not matter how efficient your code is.</p>
+<p><strong>3.1.</strong> What is the distribution of star ratings? Specifically, this is the counts of reviews per each star value (1 star, 2 star, etc).</p>
+<p><strong>3.2.</strong> What are the 10 most common words used across all of the reviews, and how many times is each used? Don’t include stars in the review, but it is okay to include other punctuation if you like. Keep words in their original case (don’t lowercase yet). The most common words can be given in any format (this will be manually graded).</p>
+<p><strong>3.3.</strong> How many times does the word&nbsp;<code>a</code>&nbsp;appear?</p>
+<p><strong>3.4.</strong> How many times does the word&nbsp;<code>fruit</code>&nbsp;appear?</p>
+<p><strong>3.5.</strong> How many times does the word&nbsp;<code>mineral</code>&nbsp;appear?</p>
+<p><strong>3.6.</strong> Common words (like&nbsp;<code>a</code>) are not as interesting as uncommon words (like&nbsp;<code>mineral</code>). In natural language processing, we call these common words&nbsp;<em>stop words</em>&nbsp;and often remove them before we process text.&nbsp;<code>stopwords.txt</code>&nbsp;gives you a list of some very common words. Remove these stopwords from your reviews. Also, try converting all the words to lowercase (since we probably don’t want to count&nbsp;<code>fruit</code>&nbsp;and&nbsp;<code>Fruit</code>&nbsp;as two different words). Now what are the 10 most common words across all of the reviews, and how many times is each used?</p>
+<p><strong>3.7.</strong> You should continue to use the preprocessed reviews for the following questions (lowercased, no stopwords). What are the 10 most used words among the 5-star reviews, and how many times is each used?</p>
+<p><strong>3.8.</strong> What are the 10 most used words among the 1-star reviews, and how many times is each used?</p>
+<p><strong>3.9.</strong> Gather two sets of reviews: 1) Those that use the word&nbsp;<code>red</code>&nbsp;and 2) those that use the word&nbsp;<code>white</code>. What are the 10 most frequent words in the&nbsp;<code>red</code>&nbsp;reviews which do <strong>not</strong> appear in the&nbsp;<code>white</code>&nbsp;reviews?</p>
+<p><strong>3.10.</strong> What are the 10 most frequent words in the&nbsp;<code>white</code>&nbsp;reviews which do <strong>not</strong> appear in the&nbsp;<code>red</code>&nbsp;reviews?</p>
+<!--
+Note: you can compare your answers against the key to see if you have done things correctly, but we will ultimately be running your code on a different input file.
+-->
+</section>
+<section id="deliverables" class="level2">
+<h2 class="anchored" data-anchor-id="deliverables">Deliverables</h2>
+<ul>
+<li>Your output CSV from Part 1, named <code>spanish_test.csv</code></li>
+<li>A modified <code>hw1_skeleton.py</code> file that contains your solutions.</li>
+<li>A README.txt file explaining
+<ol type="1">
+<li>what version of Python you used</li>
+<li>any additional resources, references, or web pages you’ve consulted</li>
+<li>any person with whom you’ve discussed the assignment and describe the nature of your discussions</li>
+<li>any generative AI tool used, and how it was used</li>
+<li>any unresolved issues or problems</li>
+</ol></li>
+<li>A <code>pyproject.toml</code>, <code>requirements.txt</code> or other file listing all Python packages and their versions in your environment (or on your system if you did not use a virtual environment).</li>
+</ul>
+<p>Please submit this material on Canvas as individual files. If you used Jupyter Notebook to complete the assignment, please download it as a <code>.py</code> script to submit.</p>
+</section>
+<section id="grading" class="level2">
+<h2 class="anchored" data-anchor-id="grading">Grading</h2>
+<p>We will be running your code on a different input file to test its performance. <!-- See Canvas for a rubric. --></p>
+</section>
+<section id="acknowledgments" class="level2">
+<h2 class="anchored" data-anchor-id="acknowledgments">Acknowledgments</h2>
+<p>This assignment is adapted from Prof.&nbsp;Mark Yatskar and Prof.&nbsp;Lorraine Li.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
