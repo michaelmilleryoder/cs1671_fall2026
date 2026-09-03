@@ -16,9 +16,9 @@ Fall 2026
 |Instructor|[Michael Miller Yoder](https://michaelmilleryoder.github.io), PhD<br/>*Please call me "Michael"*|
 |Instructor contact|[mmyoder@pitt.edu](mailto:mmyoder@pitt.edu) or through Canvas messages|
 |Instructor office hours|By appointment in person at SENSQ 6309 or on Zoom<br/>[Book an appointment](https://outlook.office.com/bookwithme/user/2536c861ee3f49ab9a4a872751754279@pitt.edu?anonymous&ep=plink)|
-|TA| Hang Zhang |
-|TA contact| haz269@pitt.edu |
-|TA office hours| Tuesdays 9-10am on Zoom|
+|TA| Yuelyu Ji |
+|TA contact| |
+|TA office hours| |
 |Textbook (free online)|[[J+M] Jurafsky and Martin, *Speech and Language Processing*, 3e draft, 2026-08-19](https://web.stanford.edu/~jurafsky/slp3)|
 |CRCD class environment path| /ix1/cs1671-2026f/class-env/.pixi/envs/default
 |Class notebooks |[CRCD JupyterHub nbgitpuller link](https://jupyter.crc.pitt.edu/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2Fmichaelmilleryoder%2Fcs1671_fall2026_jupyterhub&urlpath=lab%2Ftree%2Fcs1671_fall2026_jupyterhub%2F&branch=main) (Pitt login required, public link to source [here](https://github.com/michaelmilleryoder/cs1671_fall2026_jupyterhub)).|
@@ -65,7 +65,7 @@ Fall 2026
         <tr>
             <td>4</td>
             <td>09-03 Th</td>
-            <td>Probability and linear algebra review</td>
+            <td><a href="slides/session4_cs1671_fall2026.pdf">Probability and linear algebra review</a></td>
             <td></td>
             <td></td>
         </tr>
