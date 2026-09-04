@@ -2,7 +2,7 @@
 title: "Homework 1: Text and string processing in Python"
 ---
 
-**Due 2026-09-17, 11:59pm**. *Instructions last updated 2026-09-02.*
+**Due 2026-09-17, 11:59pm**. *Instructions last updated 2026-09-04.*
 
 In this first assignment, you'll learn and practice some coding skills that will help you deal with text data for NLP. You will be reading/writing files, using regular expressions, and processing strings in Python. 
 Use Python 3 and any Python packages you like.
@@ -140,7 +140,7 @@ Question 3.3 outputs: `your answer`.
 ...
 ```
 
-You can choose how you split the text into words (tokenize) or otherwise identify the words in the following questions. It is recommended to use a tokenization tool. Any packages may be imported to aid in tokenization. It does not matter how efficient your code is.
+You can choose how you split the text into words (tokenize) or otherwise identify the words in the following questions. It is recommended to use a tokenization tool. Any packages may be imported to aid in tokenization. Take a look at Pandas' [`map`](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.map.html) function as one option for applying a tokenizer, but other options are fine, too. It does not matter how efficient your code is.
 
 
 **3.1.** What is the distribution of star ratings? Specifically, this is the counts of reviews per each star value (1 star, 2 star, etc).
