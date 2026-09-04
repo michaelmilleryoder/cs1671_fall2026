@@ -17,8 +17,8 @@ Fall 2026
 |Instructor contact|[mmyoder@pitt.edu](mailto:mmyoder@pitt.edu) or through Canvas messages|
 |Instructor office hours|By appointment in person at SENSQ 6309 or on Zoom<br/>[Book an appointment](https://outlook.office.com/bookwithme/user/2536c861ee3f49ab9a4a872751754279@pitt.edu?anonymous&ep=plink)|
 |TA| Yuelyu Ji |
-|TA contact| |
-|TA office hours| |
+|TA contact| [yuj49@pitt.edu](mailto:yuj49@pitt.edu) |
+|TA office hours| Th 4-5pm, IS 707 and on Zoom (see Canvas announcement) |
 |Textbook (free online)|[[J+M] Jurafsky and Martin, *Speech and Language Processing*, 3e draft, 2026-08-19](https://web.stanford.edu/~jurafsky/slp3)|
 |CRCD class environment path| /ix1/cs1671-2026f/class-env/.pixi/envs/default
 |Class notebooks |[CRCD JupyterHub nbgitpuller link](https://jupyter.crc.pitt.edu/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2Fmichaelmilleryoder%2Fcs1671_fall2026_jupyterhub&urlpath=lab%2Ftree%2Fcs1671_fall2026_jupyterhub%2F&branch=main) (Pitt login required, public link to source [here](https://github.com/michaelmilleryoder/cs1671_fall2026_jupyterhub)).|
