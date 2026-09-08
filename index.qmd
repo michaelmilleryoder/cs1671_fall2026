@@ -72,9 +72,9 @@ Fall 2026
         <tr>
             <td>5</td>
             <td>09-08 Tu</td>
-            <td>Machine learning intro, NLP tasks and applications</td>
+            <td><a href="slides/session5_cs1671_fall2026.pdf">Machine learning intro, NLP tasks and applications</a></td>
             <td></td>
-            <td>Project idea form out</td>
+            <td><a href="https://forms.cloud.microsoft/r/fe5w2jWkd1">Project idea form</a> out</td>
         </tr>
 	<tr>
             <td colspan=5 style="text-align:center; background-color:#000057; color:white">Module 2: N-grams and statistical NLP</td>
@@ -91,7 +91,7 @@ Fall 2026
             <td>09-15 Tu</td>
             <td>N-gram language models</td>
             <td>J+M 3-3.6.2, 3.8</td>
-            <td>In-class quiz;<br/><strong>Project idea form due</strong></td>
+            <td>In-class quiz;<br/><strong><a href="https://forms.cloud.microsoft/r/fe5w2jWkd1">Project idea form</a> due</strong></td>
         </tr>
         <tr>
             <td>8</td>
