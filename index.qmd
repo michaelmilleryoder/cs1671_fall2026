@@ -230,7 +230,7 @@ Fall 2026
         <tr>
             <td>26</td>
             <td>11-19 Th</td>
-            <td><em>TBD (likely speech applications)</em></td>
+            <td><em>Guest lecture</em></td>
             <td></td>
             <td></td>
         </tr>
