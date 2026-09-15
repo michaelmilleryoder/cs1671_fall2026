@@ -89,7 +89,7 @@ Fall 2026
         <tr>
             <td>7</td>
             <td>09-15 Tu</td>
-            <td>N-gram language models</td>
+            <td><a href="slides/session7_cs1671_fall2026.pdf">N-gram language models</a></td>
             <td>J+M 3-3.6.2, 3.8</td>
             <td>In-class quiz;<br/><strong><a href="https://forms.cloud.microsoft/r/fe5w2jWkd1">Project idea form</a> due</strong></td>
         </tr>
@@ -266,8 +266,8 @@ Description | Points | Percentage of final grade
 ---|---:|---:
 **Homework assignments total** | **340** | **34**
 &ensp;[Homework 1](hw1) | 70 | 7
-Homework 2 | 135 | 13.5
-Homework 3 | 135 | 13.5
+&ensp;Homework 2 | 135 | 13.5
+&ensp;Homework 3 | 135 | 13.5
 **Project total** | **300** | **30**
 &ensp;Project idea form | 5 | 0.5
 &ensp;Project deliverable 1 | 55 | 5.5
