@@ -161,7 +161,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><em>Last revised 2026-09-08.</em></p>
+<p><em>Last revised 2026-09-22.</em></p>
 <p>A major component of this course is a hands-on final project guided by students’ own interests. In this project, students will demonstrate an ability to build and evaluate an NLP system that takes in language data and automatically produces some sort of output.</p>
 <p>Projects will be done in groups of ~5 students. Groups will be formed during an in-class project match day based on interest in the same project ideas.</p>
 <section id="project-idea-form" class="level2">
@@ -262,10 +262,10 @@ Please submit one per group on Canvas. There is no required length or format for
 <ol type="1">
 <li><strong>Task</strong>: What is the problem or task you are focusing on?</li>
 <li><strong>Input and output</strong>: What is the format of the input and output of this task? For example, each input could be a sentence of text and the output could be a label from a discrete set of possible labels. Provide at least one example of input and output from your data (ideally actual input and output, but it’s fine if they are made up).</li>
-<li><strong>Data</strong>: What data are you using?
+<li><strong>Data</strong>: What data are you using? Please filter and process the data into a format that can be used for later analysis or model training.
 <ol type="1">
 <li>How many rows (datapoints) are in the dataset and what does each datapoint correspond to?</li>
-<li>How many columns are in the dataset and what does each correspond to?<br>
+<li>How many columns are in the dataset and what does each column that you will be using for analysis correspond to? Are you planning on excluding (not using) any columns?<br>
 </li>
 <li>If applicable, the distribution of the target labels you are predicting. So for a binary sentiment classification task, how many rows in each set (except the test set) are marked negative or positive sentiment? This can be in a table or graph format.</li>
 <li>Provide a very small subset of the data in a table.</li>
@@ -273,7 +273,7 @@ Please submit one per group on Canvas. There is no required length or format for
 <li>Provide links to any URLs if the data is hosted online or links to papers if the dataset is published somewhere.</li>
 <li>If the data has annotated labels or “gold” text that you are predicting or generating, where do those labels come from?</li>
 </ol></li>
-<li><strong>Methods</strong>: What approach are you taking to building a NLP system to handle this task? What models and if appropriate, what methods of extracting features from text will be used? What software packages are you planning to use to build this system? Except in some cases, the approach should draw on statistical approaches we’ve covered in class so far, such as n-gram representations of text. After we directly cover LLMs in this course, you will propose additional project methods using LLMs. Talk to the instructor if you are not sure about this.</li>
+<li><strong>Methods</strong>: What approach are you taking to building a NLP system to handle this task? What models and if appropriate, what methods of extracting features from text will be used? What software packages are you planning to use to build this system? Except in some cases, the approach should draw on statistical approaches we’ve covered in class so far, such as n-gram representations of text (try something in addition to simply unigrams, however). After we directly cover LLMs in this course, you will propose additional project methods using LLMs. Talk to the instructor if you are not sure about this.</li>
 <li><strong>Evaluation</strong>: How are you evaluating your approach? What performance metrics are you going to use?</li>
 <li><strong>Ethics</strong>: What kinds of ethical issues may be raised by your model or data?</li>
 <li><strong>Steps</strong>: What are the proposed steps needed for completion of (your proposed part) of the project? This should be in some detail, for example, loading and potentially cleaning the data, training models, trying different parameters, evaluating models, etc.</li>
@@ -308,6 +308,7 @@ Groups will make a brief presentation to the class outlining their proposed proj
 <section id="part-2-a-result-from-baseline-traditional-approach" class="level3">
 <h3 class="anchored" data-anchor-id="part-2-a-result-from-baseline-traditional-approach">Part 2: A result from baseline (traditional) approach</h3>
 <p>In your proposal, you described an initial baseline approach to your task, which for most groups was using n-gram features in some way. Please provide one (hopefully quantitative) result from your work so far in this direction. Ideally this would be a performance metric result from your baseline approach on a dev or test set. But if you’re not that far yet, you can also provide an example of working input and output from your system or part of a system, some sort of plot or other output. You can be up front about challenges you are facing for which you might need help; to get a good grade, I’ll just be looking for some sort of output from a working system or part of a system. If you are confused what this means for your project, contact the instructor.</p>
+<p>If you are doing a text classification task, it’s a good idea to provide an interpretation of features from a simple model like logistic regression and an error analysis. These aren’t necessary for this deliverable, but they will be for the final project.</p>
 </section>
 <section id="part-3-llm-proposal" class="level3">
 <h3 class="anchored" data-anchor-id="part-3-llm-proposal">Part 3: LLM proposal</h3>
@@ -332,7 +333,7 @@ At the end of the course, groups will provide a written report of their project.
 <li><strong>Introduction</strong>. Include motivation for the project and examples of input and output. Detail the approaches you take and summarize your final results.</li>
 <li><strong>Data</strong>. Please provide the size of the dataset and an explanation of what each datapoint (input passed to the system) is.</li>
 <li><strong>Methods</strong>. Describe methods used for your baseline and LLM systems. Please clearly specify which techniques are novel/your own versus methods directly or indirectly from prior work (which is also fine). For LLM approaches, provide what exact prompt template was used for LLM approaches (in an appendix if needed for space), how examples were selected for few-shot prompting if used, as well as exact LLM model names.</li>
-<li><strong>Results and evaluation</strong>. In addition to a quantitative evaluation, include examples of input and output (predicted output from your system as well as the correct “gold” output, if applicable). For at least one of your systems, include an error analysis with how many instances of different types of errors your system has (false positive, false negatives, etc), as well as examples of errors and any themes observed.</li>
+<li><strong>Results and evaluation</strong>. In addition to a quantitative evaluation, include examples of input and output (predicted output from your system as well as the correct “gold” output, if applicable). For at least one of your systems, include an error analysis with how many instances of different types of errors your system has (false positive, false negatives, etc), as well as examples of errors and any themes observed. If you are doing a text classification task, provide an interpretation of features from a simple model like logistic regression.</li>
 <li><strong>Discussion</strong>. Please discuss the significance of the results that you see and any other comments about what these results indicate to you.</li>
 <li><strong>Future work</strong>. This is a good place to describe things you thought about but never had time to complete! You can also refer back to themes of errors you found in your error analysis and how they might be addressed.</li>
 <li><strong>Limitations</strong> (doesn’t count toward page limit)</li>
