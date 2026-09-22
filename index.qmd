@@ -103,7 +103,7 @@ Fall 2026
         <tr>
             <td>9</td>
             <td>09-22 Tu</td>
-            <td>Project match day, CRCD tutorial</td>
+            <td><a href="slides/session9_cs1671_fall2026.pdf">Project match day, CRCD tutorial</a></td>
             <td></td>
             <td>In-class quiz</td>
         </tr>
