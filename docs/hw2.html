@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Homework 1: Text and string processing in Python – CS 1671 / CS 2071 Human Language Technologies, Fall 2026</title>
+<title>Homework 2: Text classification – CS 1671 / CS 2071 Human Language Technologies, Fall 2026</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -97,11 +97,11 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Project</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./hw1.html" aria-current="page"> 
+    <a class="nav-link" href="./hw1.html"> 
 <span class="menu-text">HW1</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./hw2.html"> 
+    <a class="nav-link active" href="./hw2.html" aria-current="page"> 
 <span class="menu-text">HW2</span></a>
   </li>  
 </ul>
@@ -121,16 +121,20 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning objectives</a></li>
-  <li><a href="#resources-to-download" id="toc-resources-to-download" class="nav-link" data-scroll-target="#resources-to-download">Resources to download</a>
+  <li><a href="#implement-a-deception-classifier" id="toc-implement-a-deception-classifier" class="nav-link" data-scroll-target="#implement-a-deception-classifier">Implement a deception classifier</a></li>
+  <li><a href="#dataset" id="toc-dataset" class="nav-link" data-scroll-target="#dataset">Dataset</a></li>
+  <li><a href="#part-1-feature-based-logistic-regression-models" id="toc-part-1-feature-based-logistic-regression-models" class="nav-link" data-scroll-target="#part-1-feature-based-logistic-regression-models">Part 1: Feature-based logistic regression models</a>
   <ul class="collapse">
-  <li><a href="#skeleton-code" id="toc-skeleton-code" class="nav-link" data-scroll-target="#skeleton-code">Skeleton code</a></li>
-  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
+  <li><a href="#implement-a-classifier" id="toc-implement-a-classifier" class="nav-link" data-scroll-target="#implement-a-classifier">Implement a classifier</a></li>
+  <li><a href="#find-informative-features-and-do-an-error-analysis" id="toc-find-informative-features-and-do-an-error-analysis" class="nav-link" data-scroll-target="#find-informative-features-and-do-an-error-analysis">Find informative features and do an error analysis</a></li>
+  <li><a href="#include-in-the-report" id="toc-include-in-the-report" class="nav-link" data-scroll-target="#include-in-the-report">Include in the report</a></li>
   </ul></li>
-  <li><a href="#part-1-file-inputoutput-io" id="toc-part-1-file-inputoutput-io" class="nav-link" data-scroll-target="#part-1-file-inputoutput-io">Part 1: File input/output (I/O)</a></li>
-  <li><a href="#part-2-regular-expressions" id="toc-part-2-regular-expressions" class="nav-link" data-scroll-target="#part-2-regular-expressions">Part 2: Regular expressions</a></li>
-  <li><a href="#part-3-text-processing-in-python" id="toc-part-3-text-processing-in-python" class="nav-link" data-scroll-target="#part-3-text-processing-in-python">Part 3: Text Processing in Python</a></li>
+  <li><a href="#part-2-submit-your-classifier-in-the-class-challenge" id="toc-part-2-submit-your-classifier-in-the-class-challenge" class="nav-link" data-scroll-target="#part-2-submit-your-classifier-in-the-class-challenge">Part 2: Submit your classifier in the class challenge</a>
+  <ul class="collapse">
+  <li><a href="#how-to-submit-your-classifier" id="toc-how-to-submit-your-classifier" class="nav-link" data-scroll-target="#how-to-submit-your-classifier">How to submit your classifier</a></li>
+  </ul></li>
+  <li><a href="#notes" id="toc-notes" class="nav-link" data-scroll-target="#notes">Notes</a></li>
   <li><a href="#deliverables" id="toc-deliverables" class="nav-link" data-scroll-target="#deliverables">Deliverables</a></li>
-  <li><a href="#grading" id="toc-grading" class="nav-link" data-scroll-target="#grading">Grading</a></li>
   <li><a href="#acknowledgments" id="toc-acknowledgments" class="nav-link" data-scroll-target="#acknowledgments">Acknowledgments</a></li>
   </ul>
 </nav>
@@ -140,7 +144,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Homework 1: Text and string processing in Python</h1>
+<h1 class="title">Homework 2: Text classification</h1>
 </div>
 
 
@@ -157,152 +161,143 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>Due 2026-09-17, 11:59pm</strong>. <em>Instructions last updated 2026-09-04.</em></p>
-<p>In this first assignment, you’ll learn and practice some coding skills that will help you deal with text data for NLP. You will be reading/writing files, using regular expressions, and processing strings in Python. Use Python 3 and any Python packages you like.</p>
+<p><strong>Due 2026-10-15, 11:59pm</strong>. <em>Instructions last updated 2026-10-01.</em></p>
 <section id="learning-objectives" class="level2">
 <h2 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h2>
-<p>After completing this assignments, you will be able to:</p>
+<p>After completing this assignment, students will be able to:</p>
 <ul>
-<li>Load in text files into different data structures in Python</li>
-<li>Use regular expressions in Python to find and manipulate strings</li>
-<li>Write Python code to produce basic statistics about a dataset of text</li>
-<li>Specify the Python software environment you used to run a script</li>
+<li>Implement a text classification system using logistic regression and feature-based approaches</li>
+<li>Evaluate a text classification system</li>
+<li>Identify informative features in a feature-based text classification system</li>
+<li>Analyze errors in an NLP system</li>
 </ul>
 </section>
-<section id="resources-to-download" class="level2">
-<h2 class="anchored" data-anchor-id="resources-to-download">Resources to download</h2>
-<section id="skeleton-code" class="level3">
-<h3 class="anchored" data-anchor-id="skeleton-code">Skeleton code</h3>
-<p>Please download and add all your answers to the following Python script template file. It is a “skeleton” script where only the formatting is provided and you fill in the code for the rest of the file.</p>
-<ul>
-<li><a href="hw1/hw1_skeleton.py" download="">hw1_skeleton.py</a></li>
-</ul>
-<p>Please use a version of Python 3 to run your filled-out script. You do not have to run things on the CRCD JupyterHub unless you want to. You can just fill out and test your script locally on your own computer.</p>
-<p>We encourage you to use a Python virtual environment to code this and future course assignments. Virtual environments are a way to isolate your code and its dependencies. This is helpful for being able to reproduce the same results and share code with others. There are many tools available to help manage Python virtual environments, including <a href="http://pixi.sh">Pixi</a>, which we used in class. See slides from the first few sessions for some useful commands on setting up environments with Pixi. Feel free to use other tools, such as the <a href="https://docs.python.org/3/library/venv.html"><code>venv</code> module</a> and the pip package downloader to create and manage virtual environments in Python.</p>
-<p>One of the deliverables for this assignment is to specify the packages and package versions in the Python environment you used while running your code. This is most straightforward within a virtual environment, though you can provide all the Python packages installed on your system as an alternative.</p>
+<section id="implement-a-deception-classifier" class="level2">
+<h2 class="anchored" data-anchor-id="implement-a-deception-classifier">Implement a deception classifier</h2>
+<p>You will design and implement a program to classify if a comment from a player of the <a href="https://en.wikipedia.org/wiki/Diplomacy_(game)">Diplomacy</a> game is truthful or not.</p>
+<p>You can use any packages you want for this (scikit-learn, spaCy, NLTK, Gensim, etc., as well as code from in-class example notebooks). Any packages used, along with version numbers, should be specified in an <code>environment.yml</code>, <code>requirements.txt</code> or <code>pyproject.toml</code> file. The version of Python used should also be specified in your <code>README.txt</code> file. If you will be using a language other than Python, please let us know before submitting.</p>
 </section>
-<section id="data" class="level3">
-<h3 class="anchored" data-anchor-id="data">Data</h3>
-<p>For Part 1, you will need the following text file:</p>
+<section id="dataset" class="level2">
+<h2 class="anchored" data-anchor-id="dataset">Dataset</h2>
+<p>Here is the dataset that you should download for this assignment:</p>
 <ul>
-<li><a href="hw1/spanish_test.txt" download="">spanish_test.txt</a></li>
+<li><a href="hw2/diplomacy_train.csv"><code>diplomacy_train.csv</code></a>. This dataset has a variety of fields, but the most important are:
+<ul>
+<li><code>text</code>: the text of the comment</li>
+<li><code>intent</code>: 0 for truth, 1 for lie</li>
+</ul></li>
+<li><a href="hw2/diplomacy_dev.csv"><code>diplomacy_dev.csv</code></a>. This is the development set to be used for evaluation and error analysis.</li>
+<li><a href="hw2/diplomacy_kaggle.csv"><code>diplomacy_kaggle.csv</code></a>. This data has the same fields as the training data, but does not have the “correct” intent filled in. This file is to be used as a test set for the challenge competition hosted on Kaggle.</li>
 </ul>
-<p>For Part 3, you will need a small dataset of wine reviews. You can download it and unpack it in a terminal as follows:</p>
-<pre><code>$&nbsp;wget&nbsp;http://computational-linguistics-class.org/homework/python-and-bash/data.tgz
-$&nbsp;tar&nbsp;-xzvf&nbsp;data.tgz&nbsp;
-$&nbsp;ls&nbsp;data
-stopwords.txt&nbsp;&nbsp;&nbsp;&nbsp;wine.txt</code></pre>
+<p>The data is from a recording of online players of Diplomacy, as presented in <a href="https://aclanthology.org/2020.acl-main.353/">Peskov et al.&nbsp;2020</a>. Negotiation and back-stabbing are key elements of the Diplomacy game.</p>
+</section>
+<section id="part-1-feature-based-logistic-regression-models" class="level2">
+<h2 class="anchored" data-anchor-id="part-1-feature-based-logistic-regression-models">Part 1: Feature-based logistic regression models</h2>
+<p>In this section, you will build a logistic regression model based on bag-of-word features and/or features of your own design, trained on <code>diplomacy_train.csv</code>. You can do whatever preprocessing you see fit, but make sure to mention the preprocessing steps you took in the report. You will report performance on the <code>diplomacy_dev.csv</code> dataset.</p>
+<section id="implement-a-classifier" class="level3">
+<h3 class="anchored" data-anchor-id="implement-a-classifier">Implement a classifier</h3>
+<p>Implement and try the following feature and model combinations:</p>
+<ul>
+<li><em>Logistic regression with bag-of-words (unigram) features</em>. Build a logistic regression classifier that uses bag-of-words (unigram) features.</li>
+<li><em>Logistic regression with your own features/change in preprocessing</em>. Design and test at least two modifications (custom features or preprocessing changes) to unweighted unigram features. Note that these features can be used in conjunction with bag-of-words features or by themselves. Possible features/changes to add and test include:
+<ul>
+<li>Tf-idf transformed bag-of-words features. See J+M 11.1.2 for a description of tf-idf</li>
+<li>Higher order n-gram features (bigrams, trigrams, or combinations of them) beyond the unigrams used for the bag-of-words features</li>
+<li>Different preprocessing (stemming, different tokenizations, stopword removal)</li>
+<li>Changing count bag-of-words features to binary 0 or 1 for the presence of unigrams</li>
+<li>Incorporating features from columns in the dataset other than <code>text</code></li>
+<li>Reducing noisy features with feature selection</li>
+<li>Counts or added weight from custom word lists</li>
+<li>Any other custom-designed feature (such as length of input, number of capitalized words, neural embeddings of text, etc)</li>
+</ul></li>
+</ul>
+<p>You will thus have 3 total logistic regression models: one using bag-of-word features and 2 with your own selected features or preprocessing changes. Evaluate these models with accuracy, precision, recall, and f1-score for the positive (lying) class on <code>diplomacy_dev.csv</code>.</p>
+</section>
+<section id="find-informative-features-and-do-an-error-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="find-informative-features-and-do-an-error-analysis">Find informative features and do an error analysis</h3>
+<p>For a feature-based model of your choice, extract 5 informative features that are mostly strongly positively and 5 that are most negatively associated with deception. <strong>Please normalize feature values to some sort of standard scale for interpretation.</strong> We did not cover this in class, so you will have to do some reading online about it (see scikit-learn’s StandardScaler class as one option). You can either run standardization before training all models, or train separate models with standardization just for interpretation. Report the 5 features with the highest weights and 5 features with the lowest (negative) weights.</p>
+<p>Also look at contexts in which the informative features occur in your training data.</p>
+<p>You may adapt code provided by the instructor, use another source online (with a mention of the source URL), or write your own.</p>
+<p>Do an error analysis. On the dev set, calculate a confusion matrix. Sample examples from both false negatives and false positives.</p>
+</section>
+<section id="include-in-the-report" class="level3">
+<h3 class="anchored" data-anchor-id="include-in-the-report">Include in the report</h3>
+<section id="preprocessing-steps" class="level4">
+<h4 class="anchored" data-anchor-id="preprocessing-steps">1. Preprocessing steps</h4>
+<p>What preprocessing was or was not done to the text, including tokenization, lowercasing, removing stopwords or other choices. Mention any packages used for this preprocessing and even if you use default settings, explain what those settings are.</p>
+</section>
+<section id="performance-table" class="level4">
+<h4 class="anchored" data-anchor-id="performance-table">2. Performance table</h4>
+<p>Report a table of performance scores for models trained on each set of features, evaluated on <code>diplomacy_dev.csv</code>. Include accuracy as well as the following metrics for the positive (lying) class: precision, recall, and f1-score. Also include the number of features for every model.</p>
+</section>
+<section id="feature-descriptions" class="level4">
+<h4 class="anchored" data-anchor-id="feature-descriptions">3. Feature descriptions</h4>
+<p>For each feature or change in input text processing:</p>
+<ol type="1">
+<li>Describe your motivation for including the feature</li>
+<li>Discussion of results: Did it improve performance or not? (Either result is fine. It is not necessary to beat logistic regression with unigram features.)</li>
+</ol>
+</section>
+<section id="informative-features-and-error-analysis" class="level4">
+<h4 class="anchored" data-anchor-id="informative-features-and-error-analysis">4. Informative features and error analysis</h4>
+<p>For a feature-based model of your choice:</p>
+<ol type="1">
+<li>Report the 5 features with the highest weights and 5 features with the lowest (negative) weights. Report contexts in which the informative features occur in your training data. Discuss how these features may or may not make sense for this task. Give specific informative features, such as particular words (e.g.&nbsp;“actually”) for bag-of-words features, instead of sets of features like “bigram features”.</li>
+<li>Report a confusion matrix on the dev set. Report sampled examples from both false negatives and false positives and discuss. Do you see any patterns in these errors? Does the list of informative features provide evidence for any of the patterns you’re seeing? How might these errors be addressed with different features or if the system could understand something else? (You don’t have to implement these, just speculate.)</li>
+</ol>
 </section>
 </section>
-<section id="part-1-file-inputoutput-io" class="level2">
-<h2 class="anchored" data-anchor-id="part-1-file-inputoutput-io">Part 1: File input/output (I/O)</h2>
-<p>Given a file, it is important to know how to open, read, and write using Python functions: <code>open()</code>, <code>read()</code>, and <code>write()</code>. The <code>read()</code> function returns the entire contents of the file as a string. It is often useful to read each line of a file into a list. You can do this with the <code>readlines()</code>&nbsp;function, which will split on the newline character and return the lines as a list, presevering the newline character. You can also use the <code>splitlines()</code> function, which will remove the newline characters.</p>
-<p>Take some time to also read through the <code>encoding</code> argument for <a href="https://docs.python.org/3/library/functions.html#open"><code>open()</code></a> as that can be a source of trouble for files that aren’t being read in properly.</p>
-<p>Here’s some example code for reading and writing files in Python:</p>
-<pre><code># read files
-with open('test.txt') as f:
-  &nbsp; contents = f.read().splitlines()
-for s in contents:
-  &nbsp; print(s)
-
-# write files
-with open('test.txt', 'w')
-    for s in ['line1', 'line2', 'line3', 'line4'] :
-        file.write(s+'\n')</code></pre>
-<p>Often we would like to associate metadata (such as a label) with lines or chunks of text in NLP. One way of doing this is by formatting the data as a table or spreadsheet (a CSV, comma-separated value, file) with the text in a column and other columns of metadata about that text.</p>
-<p>Fill in the <code>text_to_csv</code> function in <code>hw1_skeleton.py</code>. You can use the <a href="https://docs.python.org/3/library/csv.html"><code>csv</code> module</a> or the more powerful <a href="https://pandas.pydata.org/docs/index.html#"><code>pandas</code> package</a>, particularly the <a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html#csv-text-files"><code>read_csv</code></a> and <a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html#writing-to-csv-format"><code>to_csv</code></a> methods to handle data in CSV format. In this function, please fill out code to read in the <code>spanish_test.txt</code> file and produce a CSV file with the following columns:</p>
-<ul>
-<li><code>line_id</code>: an integer ID column for each line, starting from 1 and continuing.</li>
-<li><code>text</code>: the text of the line, without any newline character included</li>
-<li><code>character_length</code>: the number of characters (length) of the line, including whitespace (but not the newline characters you removed from the <code>text</code> column). See the Python <a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html#writing-to-csv-format">string module</a> or <a href="https://pandas.pydata.org/docs/user_guide/text.html#string-methods">Pandas string functions</a>.</li>
-</ul>
-<p>Include column headers on the first line. Save this CSV file as <code>spanish_test.csv</code>. It will be part of your final submission.</p>
 </section>
-<section id="part-2-regular-expressions" class="level2">
-<h2 class="anchored" data-anchor-id="part-2-regular-expressions">Part 2: Regular expressions</h2>
-<p>Regular expressions are a powerful way to process text by describing text patterns. Here are useful resources you may need:</p>
+<section id="part-2-submit-your-classifier-in-the-class-challenge" class="level2">
+<h2 class="anchored" data-anchor-id="part-2-submit-your-classifier-in-the-class-challenge">Part 2: Submit your classifier in the class challenge</h2>
+<p>Please submit your classifier to run on a hidden held-out test set as part of a class competition. It is necessary to submit one of your classifiers, but you will not be graded on your performance. Instead, bonus points will be awarded for top systems. Bonus points will be awarded in the competition as follows, as measured by accuracy on our held-out test set.</p>
 <ul>
-<li>A fancy&nbsp;<a href="https://regex101.com/">website</a>&nbsp;to test your regex.</li>
-<li>Python&nbsp;<a href="https://docs.python.org/3/library/re.html">re</a>&nbsp;package that provides many regular expression functions for use.</li>
-<li><a href="https://web.stanford.edu/~jurafsky/slp3/2.pdf">Chapter 2</a> of the textbook</li>
-<li>A tutorial on <a href="https://www.regular-expressions.info/lookaround.html">regular expression lookaheads and lookbehinds</a></li>
+<li>6 bonus points for the best-performing logistic regression classifier</li>
+<li>4 bonus points for the 2nd best-performing logistic regression classifier</li>
+<li>2 bonus points for the 3rd best-performing logistic regression classifier</li>
 </ul>
-<pre><code># match patterns in given string
-import re
-pattern = 'pitt'
-test_string = 'pittsburgh'
-result = re.match(pattern, test_string)
-if result:
-    print("Search successful.")
-else:
-    print("Search unsuccessful.") </code></pre>
-<p>In this part, you need to fill in the functions&nbsp;<code>check_for_foo_or_bar</code>&nbsp;and&nbsp;<code>replace_rgb</code>&nbsp;in the skeleton script.</p>
-<p><strong>2.1.</strong> Check whether the input string meets the following condition. <em>Useful documentation</em>: <a href="https://docs.python.org/3/library/re.html#match-objects">Python match objects</a></p>
-<ul>
-<li>The string must have both the word&nbsp;<code>foo</code>&nbsp;and the word&nbsp;<code>bar</code>&nbsp;in it, whitespace- or punctuation-delimited from other words. (not, e.g., words like&nbsp;<code>foobar</code>&nbsp;or&nbsp;<code>bart</code>&nbsp;that merely contain the word&nbsp;bar). You only need to match lowercase <code>foo</code> and <code>bar</code>, though it is okay if you also match any capitalized letters within <code>foo</code> or <code>bar</code> (either is acceptable).</li>
-<li>Return True if the condition is met, false otherwise.</li>
-</ul>
-<p><strong>2.2.</strong> Replace all RGB or hex colors with the word&nbsp;COLOR. <em>Useful documentation</em>: <a href="https://docs.python.org/3/library/re.html#re.sub">Python regular expression substitutions</a>. It is fine to run multiple regular expressions substitutions if you like.</p>
-<ul>
-<li>Possible example formats for a color string:&nbsp;<code>#0b013a</code>,&nbsp;<code>#37EfaA</code>,&nbsp;<code>rgb(1, 1, 1)</code>,&nbsp;<code>rgb(255, 19, 32)</code>,&nbsp;<code>rgb(00, 001, 18.0)</code>, or&nbsp;<code>rgb(0.1, 0.5, 1.0)</code>.</li>
-<li>Note that there is no need to try other formats that are not listed above. There is also no need to validate the ranges of the rgb values.</li>
-<li>However, you should make sure all numbers are indeed valid numbers. For example,&nbsp;<code>#xyzxyz</code>&nbsp;should return false as these are not valid hex digits. Similarly,&nbsp;<code>rgb(c00l, 255, 255)</code>&nbsp;should return false.</li>
-<li>Only replace matching colors which are at the beginning or end of the line, or are space separated from the text around them. For example, due to the trailing period:&nbsp;<code>I like rgb(1, 2, 3) and rgb(2, 3, 4).</code>&nbsp;becomes&nbsp;<code>I like COLOR and rgb(2, 3, 4).</code></li>
-<li>Return the full text with all RGB or hex colors replaced with the word&nbsp;<code>COLOR</code>.</li>
-</ul>
+<section id="how-to-submit-your-classifier" class="level3">
+<h3 class="anchored" data-anchor-id="how-to-submit-your-classifier">How to submit your classifier</h3>
+<p>This optional competition is conducted on Kaggle. A link will be provided here when the competition is posted. <!--See this page for instructions on how to submit: <https://www.kaggle.com/t/fa4086c7b9f0469e994075b4c4f427e3>.--></p>
+<p>You will need to create a Kaggle account to submit. Let the instructor know if this is a barrier and we will work something out. <strong>Please provide your Kaggle username used in the competition in your report.</strong> Note that this username will be visible in a leaderboard to other challenge competition participants.</p>
 </section>
-<section id="part-3-text-processing-in-python" class="level2">
-<h2 class="anchored" data-anchor-id="part-3-text-processing-in-python">Part 3: Text Processing in Python</h2>
-<p>For this part, you will use a small data set of wine reviews (see the <a href="#data">Data</a> section above for download instructions). You can use <code>pandas</code> or some other way to load and manipulate the files.</p>
-<p><code>wine.txt</code>&nbsp;is in the format of one review per line, followed by a star rating between 1 and 5 (except for 3 reviews, where the review decided to go rogue and give 6 stars. Pft.) The text of the review and the star rating are separated by a single tab character. There is also a file called&nbsp;<code>stopwords.txt</code>, which you will use for question 3.6.</p>
-<p><code>wine.txt</code> is also a little peculiar in its format. The encoding of the text file is <code>Latin1</code> / <code>ISO-8859-1</code> and depending on the OS of your machine, the default encoding used when running <code>open()</code> may be this encoding or it could be <code>utf-8</code> (the default encoding on Linux for example). To ensure compatibility specify the encoding when you read in text files.</p>
-<p>In the&nbsp;<code>wine_text_processing</code>&nbsp;function in&nbsp;<code>hw1_skeleton.py</code>, write code that answers each of the following questions and prints the answer to standard output, followed by a newline. If you get this output it’s very likely your code works correctly! For questions where there are ties, please break the tie alphabetically (e.g.&nbsp;apple would come before banana). We highly recommend looking into the functions available in the Python&nbsp;<a href="https://docs.python.org/3/library/string.html">string module</a>.</p>
-<p>You will need to write your code in the&nbsp;<code>wine_text_processing</code>&nbsp;function in the <code>hw1_skeleton.py</code>&nbsp;file to answer the following questions. Please note that you need to print out the answers to each of the following questions, like below:</p>
-<pre><code>Question&nbsp;3.1&nbsp;outputs:&nbsp;`your&nbsp;answer`.
-&nbsp;
-Question&nbsp;3.2&nbsp;outputs:&nbsp;`your&nbsp;answer`.
-&nbsp;
-Question&nbsp;3.3&nbsp;outputs:&nbsp;`your&nbsp;answer`.
-...</code></pre>
-<p>You can choose how you split the text into words (tokenize) or otherwise identify the words in the following questions. It is recommended to use a tokenization tool. Any packages may be imported to aid in tokenization. Take a look at Pandas’ <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.map.html"><code>map</code></a> function as one option for applying a tokenizer, but other options are fine, too. It does not matter how efficient your code is.</p>
-<p><strong>3.1.</strong> What is the distribution of star ratings? Specifically, this is the counts of reviews per each star value (1 star, 2 star, etc).</p>
-<p><strong>3.2.</strong> What are the 10 most common words used across all of the reviews, and how many times is each used? Don’t include stars in the review, but it is okay to include other punctuation if you like. Keep words in their original case (don’t lowercase yet). The most common words can be given in any format (this will be manually graded).</p>
-<p><strong>3.3.</strong> How many times does the word&nbsp;<code>a</code>&nbsp;appear?</p>
-<p><strong>3.4.</strong> How many times does the word&nbsp;<code>fruit</code>&nbsp;appear?</p>
-<p><strong>3.5.</strong> How many times does the word&nbsp;<code>mineral</code>&nbsp;appear?</p>
-<p><strong>3.6.</strong> Common words (like&nbsp;<code>a</code>) are not as interesting as uncommon words (like&nbsp;<code>mineral</code>). In natural language processing, we call these common words&nbsp;<em>stop words</em>&nbsp;and often remove them before we process text.&nbsp;<code>stopwords.txt</code>&nbsp;gives you a list of some very common words. Remove these stopwords from your reviews. Also, try converting all the words to lowercase (since we probably don’t want to count&nbsp;<code>fruit</code>&nbsp;and&nbsp;<code>Fruit</code>&nbsp;as two different words). Now what are the 10 most common words across all of the reviews, and how many times is each used?</p>
-<p><strong>3.7.</strong> You should continue to use the preprocessed reviews for the following questions (lowercased, no stopwords). What are the 10 most used words among the 5-star reviews, and how many times is each used?</p>
-<p><strong>3.8.</strong> What are the 10 most used words among the 1-star reviews, and how many times is each used?</p>
-<p><strong>3.9.</strong> Gather two sets of reviews: 1) Those that use the word&nbsp;<code>red</code>&nbsp;and 2) those that use the word&nbsp;<code>white</code>. What are the 10 most frequent words in the&nbsp;<code>red</code>&nbsp;reviews which do <strong>not</strong> appear in the&nbsp;<code>white</code>&nbsp;reviews?</p>
-<p><strong>3.10.</strong> What are the 10 most frequent words in the&nbsp;<code>white</code>&nbsp;reviews which do <strong>not</strong> appear in the&nbsp;<code>red</code>&nbsp;reviews?</p>
-<!--
-Note: you can compare your answers against the key to see if you have done things correctly, but we will ultimately be running your code on a different input file.
--->
+</section>
+<section id="notes" class="level2">
+<h2 class="anchored" data-anchor-id="notes">Notes</h2>
+<ul>
+<li>Don’t feel like you need to write things from scratch; use as many packages as you want. Class Jupyter notebooks, Stack Overflow, and NLP/ML software documentation are your friend! Adapting and consulting other approaches is fine and should be noted in comments in the code and/or in the <code>README.txt</code>. Just don’t use complete, fully-formed implementations, including from generative AI tools. Use all resources as aids, not as a final product, and provide source URLs or generative AI description in code comments.</li>
+<li>Optionally, you may incorporate any form of regularization that you like.</li>
+</ul>
 </section>
 <section id="deliverables" class="level2">
 <h2 class="anchored" data-anchor-id="deliverables">Deliverables</h2>
 <ul>
-<li>Your output CSV from Part 1, named <code>spanish_test.csv</code></li>
-<li>A modified <code>hw1_skeleton.py</code> file that contains your solutions.</li>
-<li>A README.txt file explaining
-<ol type="1">
-<li>what version of Python you used</li>
+<li>Your report with results and answers to questions in Part 1, named <code>hw2_{your pitt email id}.pdf</code>. No need to include <span class="citation" data-cites="pitt.edu">@pitt.edu</span>, just use the email ID before that part. For example: <code>report_mmyoder_hw2.pdf</code>.</li>
+<li>Your code used to train models and estimate performance for Part 1 in a file named <code>hw2_{your pitt email id}_train.py</code>.</li>
+<li>Your code used for the Kaggle submission in Part 2 in a file named <code>hw2_{your pitt email id}_kaggle.py</code>.</li>
+<li>A <code>README.txt</code> file explaining
+<ul>
+<li>The Kaggle username you used to submit your predictions</li>
+<li>how to run the code you used to train your models and calculate dev set performance</li>
+<li>the version of Python used</li>
+<li>any additional files needed to run the code</li>
 <li>any additional resources, references, or web pages you’ve consulted</li>
 <li>any person with whom you’ve discussed the assignment and describe the nature of your discussions</li>
 <li>any generative AI tool used, and how it was used</li>
 <li>any unresolved issues or problems</li>
-</ol></li>
-<li>A <code>pyproject.toml</code>, <code>requirements.txt</code> or other file listing all Python packages and their versions in your environment (or on your system if you did not use a virtual environment).</li>
+</ul></li>
+<li>A <code>requirements.txt</code> file with:
+<ul>
+<li>all Python packages and package versions in the computing environment you used in case we replicate your experiments</li>
+</ul></li>
 </ul>
-<p>Please submit this material on Canvas as individual files. If you used Jupyter Notebook to complete the assignment, please download it as a <code>.py</code> script to submit.</p>
-</section>
-<section id="grading" class="level2">
-<h2 class="anchored" data-anchor-id="grading">Grading</h2>
-<p>We will be running your code on a different input file to test its performance. <!-- See Canvas for a rubric. --></p>
+<p>Please submit all of this material on Canvas. We will grade your report and look over your code.</p>
+<!--## Grading
+See rubric on Canvas.-->
 </section>
 <section id="acknowledgments" class="level2">
 <h2 class="anchored" data-anchor-id="acknowledgments">Acknowledgments</h2>
-<p>This assignment is adapted from Prof.&nbsp;Mark Yatskar and Prof.&nbsp;Lorraine Li.</p>
+<p>This assignment is inspired from a homework assignment by Prof.&nbsp;Diane Litman. Data is from <a href="https://aclanthology.org/2020.acl-main.353/">Peskov et al.&nbsp;2020</a>.</p>
 
 
 </section>

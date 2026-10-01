@@ -56,6 +56,69 @@
     "text": "Final presentation\nIn class, date and time TBD.\nGroups will present their finished work to the group, with Q&A and feedback opportunities from students. Please prepare a maximum 7-minute presentation. A shared PowerPoint presentation will be provided to add your group’s slides to.  Cover at least these key points:\n\nProject motivation (briefly)\nTask description, including example input and output\nData\nMethods, including your baseline system and your contemporary LLM-based approach (or whatever approaches you took)\nResults or findings from your baseline system and your contemporary LLM-based approach"
   },
   {
+    "objectID": "hw2.html",
+    "href": "hw2.html",
+    "title": "Homework 2: Text classification",
+    "section": "",
+    "text": "Due 2026-10-15, 11:59pm. Instructions last updated 2026-10-01."
+  },
+  {
+    "objectID": "hw2.html#learning-objectives",
+    "href": "hw2.html#learning-objectives",
+    "title": "Homework 2: Text classification",
+    "section": "Learning objectives",
+    "text": "Learning objectives\nAfter completing this assignment, students will be able to:\n\nImplement a text classification system using logistic regression and feature-based approaches\nEvaluate a text classification system\nIdentify informative features in a feature-based text classification system\nAnalyze errors in an NLP system"
+  },
+  {
+    "objectID": "hw2.html#implement-a-deception-classifier",
+    "href": "hw2.html#implement-a-deception-classifier",
+    "title": "Homework 2: Text classification",
+    "section": "Implement a deception classifier",
+    "text": "Implement a deception classifier\nYou will design and implement a program to classify if a comment from a player of the Diplomacy game is truthful or not.\nYou can use any packages you want for this (scikit-learn, spaCy, NLTK, Gensim, etc., as well as code from in-class example notebooks). Any packages used, along with version numbers, should be specified in an environment.yml, requirements.txt or pyproject.toml file. The version of Python used should also be specified in your README.txt file. If you will be using a language other than Python, please let us know before submitting."
+  },
+  {
+    "objectID": "hw2.html#dataset",
+    "href": "hw2.html#dataset",
+    "title": "Homework 2: Text classification",
+    "section": "Dataset",
+    "text": "Dataset\nHere is the dataset that you should download for this assignment:\n\ndiplomacy_train.csv. This dataset has a variety of fields, but the most important are:\n\ntext: the text of the comment\nintent: 0 for truth, 1 for lie\n\ndiplomacy_dev.csv. This is the development set to be used for evaluation and error analysis.\ndiplomacy_kaggle.csv. This data has the same fields as the training data, but does not have the “correct” intent filled in. This file is to be used as a test set for the challenge competition hosted on Kaggle.\n\nThe data is from a recording of online players of Diplomacy, as presented in Peskov et al. 2020. Negotiation and back-stabbing are key elements of the Diplomacy game."
+  },
+  {
+    "objectID": "hw2.html#part-1-feature-based-logistic-regression-models",
+    "href": "hw2.html#part-1-feature-based-logistic-regression-models",
+    "title": "Homework 2: Text classification",
+    "section": "Part 1: Feature-based logistic regression models",
+    "text": "Part 1: Feature-based logistic regression models\nIn this section, you will build a logistic regression model based on bag-of-word features and/or features of your own design, trained on diplomacy_train.csv. You can do whatever preprocessing you see fit, but make sure to mention the preprocessing steps you took in the report. You will report performance on the diplomacy_dev.csv dataset.\n\nImplement a classifier\nImplement and try the following feature and model combinations:\n\nLogistic regression with bag-of-words (unigram) features. Build a logistic regression classifier that uses bag-of-words (unigram) features.\nLogistic regression with your own features/change in preprocessing. Design and test at least two modifications (custom features or preprocessing changes) to unweighted unigram features. Note that these features can be used in conjunction with bag-of-words features or by themselves. Possible features/changes to add and test include:\n\nTf-idf transformed bag-of-words features. See J+M 11.1.2 for a description of tf-idf\nHigher order n-gram features (bigrams, trigrams, or combinations of them) beyond the unigrams used for the bag-of-words features\nDifferent preprocessing (stemming, different tokenizations, stopword removal)\nChanging count bag-of-words features to binary 0 or 1 for the presence of unigrams\nIncorporating features from columns in the dataset other than text\nReducing noisy features with feature selection\nCounts or added weight from custom word lists\nAny other custom-designed feature (such as length of input, number of capitalized words, neural embeddings of text, etc)\n\n\nYou will thus have 3 total logistic regression models: one using bag-of-word features and 2 with your own selected features or preprocessing changes. Evaluate these models with accuracy, precision, recall, and f1-score for the positive (lying) class on diplomacy_dev.csv.\n\n\nFind informative features and do an error analysis\nFor a feature-based model of your choice, extract 5 informative features that are mostly strongly positively and 5 that are most negatively associated with deception. Please normalize feature values to some sort of standard scale for interpretation. We did not cover this in class, so you will have to do some reading online about it (see scikit-learn’s StandardScaler class as one option). You can either run standardization before training all models, or train separate models with standardization just for interpretation. Report the 5 features with the highest weights and 5 features with the lowest (negative) weights.\nAlso look at contexts in which the informative features occur in your training data.\nYou may adapt code provided by the instructor, use another source online (with a mention of the source URL), or write your own.\nDo an error analysis. On the dev set, calculate a confusion matrix. Sample examples from both false negatives and false positives.\n\n\nInclude in the report\n\n1. Preprocessing steps\nWhat preprocessing was or was not done to the text, including tokenization, lowercasing, removing stopwords or other choices. Mention any packages used for this preprocessing and even if you use default settings, explain what those settings are.\n\n\n2. Performance table\nReport a table of performance scores for models trained on each set of features, evaluated on diplomacy_dev.csv. Include accuracy as well as the following metrics for the positive (lying) class: precision, recall, and f1-score. Also include the number of features for every model.\n\n\n3. Feature descriptions\nFor each feature or change in input text processing:\n\nDescribe your motivation for including the feature\nDiscussion of results: Did it improve performance or not? (Either result is fine. It is not necessary to beat logistic regression with unigram features.)\n\n\n\n4. Informative features and error analysis\nFor a feature-based model of your choice:\n\nReport the 5 features with the highest weights and 5 features with the lowest (negative) weights. Report contexts in which the informative features occur in your training data. Discuss how these features may or may not make sense for this task. Give specific informative features, such as particular words (e.g. “actually”) for bag-of-words features, instead of sets of features like “bigram features”.\nReport a confusion matrix on the dev set. Report sampled examples from both false negatives and false positives and discuss. Do you see any patterns in these errors? Does the list of informative features provide evidence for any of the patterns you’re seeing? How might these errors be addressed with different features or if the system could understand something else? (You don’t have to implement these, just speculate.)"
+  },
+  {
+    "objectID": "hw2.html#part-2-submit-your-classifier-in-the-class-challenge",
+    "href": "hw2.html#part-2-submit-your-classifier-in-the-class-challenge",
+    "title": "Homework 2: Text classification",
+    "section": "Part 2: Submit your classifier in the class challenge",
+    "text": "Part 2: Submit your classifier in the class challenge\nPlease submit your classifier to run on a hidden held-out test set as part of a class competition. It is necessary to submit one of your classifiers, but you will not be graded on your performance. Instead, bonus points will be awarded for top systems. Bonus points will be awarded in the competition as follows, as measured by accuracy on our held-out test set.\n\n6 bonus points for the best-performing logistic regression classifier\n4 bonus points for the 2nd best-performing logistic regression classifier\n2 bonus points for the 3rd best-performing logistic regression classifier\n\n\nHow to submit your classifier\nThis optional competition is conducted on Kaggle. A link will be provided here when the competition is posted. \nYou will need to create a Kaggle account to submit. Let the instructor know if this is a barrier and we will work something out. Please provide your Kaggle username used in the competition in your report. Note that this username will be visible in a leaderboard to other challenge competition participants."
+  },
+  {
+    "objectID": "hw2.html#notes",
+    "href": "hw2.html#notes",
+    "title": "Homework 2: Text classification",
+    "section": "Notes",
+    "text": "Notes\n\nDon’t feel like you need to write things from scratch; use as many packages as you want. Class Jupyter notebooks, Stack Overflow, and NLP/ML software documentation are your friend! Adapting and consulting other approaches is fine and should be noted in comments in the code and/or in the README.txt. Just don’t use complete, fully-formed implementations, including from generative AI tools. Use all resources as aids, not as a final product, and provide source URLs or generative AI description in code comments.\nOptionally, you may incorporate any form of regularization that you like."
+  },
+  {
+    "objectID": "hw2.html#deliverables",
+    "href": "hw2.html#deliverables",
+    "title": "Homework 2: Text classification",
+    "section": "Deliverables",
+    "text": "Deliverables\n\nYour report with results and answers to questions in Part 1, named hw2_{your pitt email id}.pdf. No need to include @pitt.edu, just use the email ID before that part. For example: report_mmyoder_hw2.pdf.\nYour code used to train models and estimate performance for Part 1 in a file named hw2_{your pitt email id}_train.py.\nYour code used for the Kaggle submission in Part 2 in a file named hw2_{your pitt email id}_kaggle.py.\nA README.txt file explaining\n\nThe Kaggle username you used to submit your predictions\nhow to run the code you used to train your models and calculate dev set performance\nthe version of Python used\nany additional files needed to run the code\nany additional resources, references, or web pages you’ve consulted\nany person with whom you’ve discussed the assignment and describe the nature of your discussions\nany generative AI tool used, and how it was used\nany unresolved issues or problems\n\nA requirements.txt file with:\n\nall Python packages and package versions in the computing environment you used in case we replicate your experiments\n\n\nPlease submit all of this material on Canvas. We will grade your report and look over your code."
+  },
+  {
+    "objectID": "hw2.html#acknowledgments",
+    "href": "hw2.html#acknowledgments",
+    "title": "Homework 2: Text classification",
+    "section": "Acknowledgments",
+    "text": "Acknowledgments\nThis assignment is inspired from a homework assignment by Prof. Diane Litman. Data is from Peskov et al. 2020."
+  },
+  {
     "objectID": "hw1.html",
     "href": "hw1.html",
     "title": "Homework 1: Text and string processing in Python",
