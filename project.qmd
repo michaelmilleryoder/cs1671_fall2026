@@ -115,8 +115,8 @@ the form [here](https://forms.cloud.microsoft/r/NKimWCuwyb).
 ## Project proposal presentation 
 *In class 10-13*.  
 Groups will make a brief presentation to the class outlining their proposed project, with Q&A and opportunities for feedback from other students. Please plan for maximum **5-minute** presentations not including Q&A, which will be held right afterward for each group. 
-A shared PowerPoint presentation will be provided for you to add your slides to.
-<!--Please add your slides to this [shared PowerPoint presentation](https://pitt-my.sharepoint.com/:p:/g/personal/mmyoder_pitt_edu/IQB4aVgnu51JQrHZ0uNj0JvSAbTlp_gf2lb51I2CgXRC5Kk?e=Cgd9fw)-->
+<!--A shared PowerPoint presentation will be provided for you to add your slides to.-->
+Please add your slides to this [shared PowerPoint presentation](https://pitt-my.sharepoint.com/:p:/g/personal/mmyoder_pitt_edu/IQDf6aWJBelDTp-AB2M8qFAgAX35F8553a5Wi18g2DGjtJ8?e=8dElbb).
 Presentations are not graded. Cover at least these key points:
 
 1. Project motivation

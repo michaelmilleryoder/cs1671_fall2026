@@ -148,7 +148,7 @@ Fall 2026
         <tr>
             <td>15</td>
             <td>10-13 Tu</td>
-            <td><strong>Project proposal presentations</strong></td>
+            <td><strong><a href="https://pitt-my.sharepoint.com/:p:/g/personal/mmyoder_pitt_edu/IQDf6aWJBelDTp-AB2M8qFAgAX35F8553a5Wi18g2DGjtJ8?e=8dElbb">Project proposal presentations</a></strong></td>
             <td></td>
             <td></td>
         </tr>
