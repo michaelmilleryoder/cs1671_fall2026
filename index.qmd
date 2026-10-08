@@ -141,7 +141,7 @@ Fall 2026
         <tr>
             <td>14</td>
             <td>10-08 Th</td>
-            <td>Neural networks part 2</td>
+            <td><a href="slides/session14_cs1671_fall2026.pdf">Neural networks part 2</a></td>
             <td>J+M 6.5-6.6</td>
             <td><strong><a href="project.html#project-deliverable-1">Project deliverable 1</a> due</strong></td>
         </tr>
