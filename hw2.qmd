@@ -2,7 +2,7 @@
 title: "Homework 2: Text classification"
 ---
 
-**Due 2026-10-15, 11:59pm**. *Instructions last updated 2026-10-01.*
+**Due 2026-10-15, 11:59pm**. *Instructions last updated 2026-10-12.*
 
 ## Learning objectives
 After completing this assignment, students will be able to:
