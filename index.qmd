@@ -158,7 +158,7 @@ Fall 2026
         <tr>
             <td>16</td>
             <td>10-15 Th</td>
-            <td>Introduction to LLMs</td>
+            <td><a href="slides/session16_cs1671_fall2026.pdf">Introduction to LLMs</a></td>
             <td>J+M 1-1.2, 1.6-1.7, 1.10-11, 7.6-7.7, 9.1</td>
             <td><strong><a href="hw2">HW2</a> due</strong></td>
         </tr>
