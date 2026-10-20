@@ -165,7 +165,7 @@ Fall 2026
         <tr>
             <td>17</td>
             <td>10-20 Tu</td>
-            <td>Transformers part 1</td>
+            <td><a href="slides/session17_cs1671_fall2026.pdf">Transformers part 1</a></td>
             <td>J+M 7-7.2</td>
             <td>In-class quiz</td>
         <tr>
