@@ -2,7 +2,7 @@
 title: "Project"
 ---
 
-*Last revised 2026-09-22.*
+*Last revised 2026-10-22.*
 
 A major component of this course is a hands-on final project guided by students' own interests. In this project, students will demonstrate an ability to build and evaluate an NLP system that takes in language data and automatically produces some sort of output.
 
@@ -127,7 +127,7 @@ Presentations are not graded. Cover at least these key points:
 ## Deliverable 2
 *Due 10-29*.  
 
-Deliverable 2 will contain a substantive update on your group's progress using traditional (usually n-gram based) approaches on your task, as well as a description of how you will use LLMs for your task. Please provide a specification of your problem/task and input and output. You do not have to repeat information from the project proposal except for that basic description of the project. Here are the details:
+Deliverable 2 will contain a substantive update on your group's progress using traditional (usually n-gram based) approaches on your task, as well as a description of how you will use LLMs for your task. Please provide a specification of your problem/task and input and output. You do not have to repeat information from the project proposal except for that basic description of the project. There is also a peer review to fill out [here](https://forms.cloud.microsoft/r/5i6LfDXViC).
 
 ### Part 1: Basic data analysis
 In this part, please provide the following information about your dataset. It's fine to be working with multiple datasets; just complete this for each one or for a final dataset you will be using if you are combining datasets. It's okay if you repeat information from the proposal for this; just be sure it's information on the final dataset you are using for analysis.
@@ -140,10 +140,12 @@ In this part, please provide the following information about your dataset. It's 
 ### Part 2: A result from baseline (traditional) approach
 In your proposal, you described an initial baseline approach to your task, which for most groups was using n-gram features in some way. Please provide one (hopefully quantitative) result from your work so far in this direction. Ideally this would be a performance metric result from your baseline approach on a dev or test set. But if you're not that far yet, you can also provide an example of working input and output from your system or part of a system, some sort of plot or other output. You can be up front about challenges you are facing for which you might need help; to get a good grade, I'll just be looking for some sort of output from a working system or part of a system. If you are confused what this means for your project, contact the instructor.
 
-If you are doing a text classification task, it's a good idea to provide an interpretation of features from a simple model like logistic regression and an error analysis. These aren't necessary for this deliverable, but they will be for the final project.
+If you are doing a text classification task, provide an interpretation of features from a simple model like logistic regression and an error analysis.
 
-### Part 3: LLM proposal
-In the project, you will be comparing your baseline system's performance to that of an LLM. Please describe how you might use an LLM programmatically to attempt your task. The simplest way to do this would be in a "zero-shot" setting where you simply ask the LLM to do the task, but even that requires setting up and passing your data to the LLM and evaluating it. Please describe what you plan to do and which LLM you plan on using. You can also propose using more advanced approaches such as in-context learning (few-shot prompting), chain-of-thought prompting, prompt optimization or fine-tuning. Not all groups have to use an LLM here if you have already talked to the instructor; in that case, please describe the rest of the approach you will be taking to complete the project.
+Please submit the code used for this result. You can submit a link to a GitHub repo or the code as files with a README to provide an overview of the code organization.
+
+### Part 3: Advanced system (LLM) proposal
+In the project, you will be comparing your baseline system's performance to that of one that is more advanced, usually involving an LLM. Please describe how you might use an LLM programmatically to attempt your task and the text of a prompt you would use. The simplest way to do this would be in a "zero-shot" setting where you simply ask the LLM to do the task, but even that requires setting up and passing your data to the LLM and evaluating it. Please describe what you plan to do and which LLM you plan on using. Also propose at least one more advanced approaches such as in-context learning (few-shot prompting), chain-of-thought prompting, prompt optimization or fine-tuning. All groups should include a plan for testing at least a zero-shot decoder LLM unless you have already talked to the instructor about a different plan for your advanced system. In that case, please describe the approach you will be taking for your advanced system.
 
 ### Part 4: Open questions and challenges
 Please describe any open questions or challenges your group has at this point. Will you need any resources other than the ones provided in class (SCI open-source LLM API, CRCD) or have any other questions? Also describe if the roles for each of your team members have changed since the proposal and if so, what the new roles are.
