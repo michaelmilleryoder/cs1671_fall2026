@@ -171,7 +171,7 @@ Fall 2026
         <tr>
             <td>18</td>
             <td>10-22 Th</td>
-            <td>Transformers part 2</td>
+            <td><a href="slides/session18_cs1671_fall2026.pdf">Transformers part 2</a></td>
             <td>J+M 7.4-7.5, 7.9</td>
             <td></td>
         </tr>
