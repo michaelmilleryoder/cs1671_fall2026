@@ -25,7 +25,7 @@ Fall 2026
 
 
 # Schedule
-*Subject to change. Last revised 2026-10-26. All due dates are at 11:59pm ET except when indicated.*
+*Subject to change. Last revised 2026-10-27. All due dates are at 11:59pm ET except when indicated.*
 
 <table class="schedule">
     <thead>
@@ -178,7 +178,7 @@ Fall 2026
         <tr>
             <td>19</td>
             <td>10-27 Tu</td>
-            <td>Post-training LLMs</td>
+            <td><a href="slides/session19_cs1671_fall2026.pdf">Post-training LLMs</a></td>
             <td>J+M 8</td>
             <td>In-class quiz;<br/>HW3 out 10-28</td>
         </tr>
@@ -252,7 +252,7 @@ Fall 2026
         </tr>
         <tr>
             <td>29</td>
-            <td><em>TBD</em></td>
+            <td><em>12-10 Th<br/>2-3:50p</em></td>
             <td><strong>Project presentations</strong></td>
             <td></td>
             <td><strong>Project report due 12-08</strong></td>
