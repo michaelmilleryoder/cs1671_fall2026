@@ -25,7 +25,7 @@ Fall 2026
 
 
 # Schedule
-*Subject to change. Last revised 2026-10-27. All due dates are at 11:59pm ET except when indicated.*
+*Subject to change. Last revised 2026-10-28. All due dates are at 11:59pm ET except when indicated.*
 
 <table class="schedule">
     <thead>
@@ -186,7 +186,7 @@ Fall 2026
             <td>20</td>
             <td>10-29 Th</td>
             <td>BERT</td>
-            <td>J+M 10-10.2, 10.4-10.4.1, 10.6</td>
+            <td>J+M 9-9.3, 9.5-9.5.1, 9.6</td>
             <td><strong><a href="project.html#deliverable-2">Project deliverable 2</a> due</strong></td>
         </tr>
         <tr>
