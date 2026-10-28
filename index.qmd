@@ -180,7 +180,7 @@ Fall 2026
             <td>10-27 Tu</td>
             <td><a href="slides/session19_cs1671_fall2026.pdf">Post-training LLMs</a></td>
             <td>J+M 8</td>
-            <td>In-class quiz;<br/>HW3 out 10-28</td>
+            <td>In-class quiz;<br/><a href="hw3">HW3</a> out 10-28</td>
         </tr>
         <tr>
             <td>20</td>
@@ -225,7 +225,7 @@ Fall 2026
             <td>11-17 Tu</td>
             <td>Information retrieval, RAG</td>
             <td>J+M 11</td>
-            <td><strong>HW3 due</strong></td>
+            <td><strong><a href="hw3">HW3</a> due</strong></td>
         </tr>
         <tr>
             <td>26</td>
@@ -267,7 +267,7 @@ Description | Points | Percentage of final grade
 **Homework assignments total** | **340** | **34**
 &ensp;[Homework 1](hw1) | 70 | 7
 &ensp;[Homework 2](hw2) | 135 | 13.5
-&ensp;Homework 3 | 135 | 13.5
+&ensp;[Homework 3](hw3) | 135 | 13.5
 **Project total** | **300** | **30**
 &ensp;Project idea form | 5 | 0.5
 &ensp;Project deliverable 1 | 55 | 5.5
