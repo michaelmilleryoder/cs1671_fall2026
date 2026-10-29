@@ -20,12 +20,12 @@ Fall 2026
 |TA contact| [yuj49@pitt.edu](mailto:yuj49@pitt.edu) |
 |TA office hours| Th 4-5pm, IS 707 and on Zoom (see Canvas announcement) |
 |Textbook (free online)|[[J+M] Jurafsky and Martin, *Speech and Language Processing*, 3e draft, 2026-08-19](https://web.stanford.edu/~jurafsky/slp3)|
-|CRCD class environment path| /ix1/cs1671-2026f/class-env/.pixi/envs/default
+|CRCD class environment path| /vast/cs1671-2026f/class-env/.pixi/envs/default
 |Class notebooks |[CRCD JupyterHub nbgitpuller link](https://jupyter.crc.pitt.edu/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2Fmichaelmilleryoder%2Fcs1671_fall2026_jupyterhub&urlpath=lab%2Ftree%2Fcs1671_fall2026_jupyterhub%2F&branch=main) (Pitt login required, public link to source [here](https://github.com/michaelmilleryoder/cs1671_fall2026_jupyterhub)).|
 
 
 # Schedule
-*Subject to change. Last revised 2026-10-28. All due dates are at 11:59pm ET except when indicated.*
+*Subject to change. Last revised 2026-10-29. All due dates are at 11:59pm ET except when indicated.*
 
 <table class="schedule">
     <thead>
@@ -185,7 +185,7 @@ Fall 2026
         <tr>
             <td>20</td>
             <td>10-29 Th</td>
-            <td>BERT</td>
+            <td><a href="slides/session20_cs1671_fall2026.pdf">BERT</a></td>
             <td>J+M 9-9.3, 9.5-9.5.1, 9.6</td>
             <td><strong><a href="project.html#deliverable-2">Project deliverable 2</a> due</strong></td>
         </tr>
@@ -194,14 +194,14 @@ Fall 2026
             <td>11-03 Tu</td>
             <td>Prompting, finetuning, and evaluating LLMs</td>
             <td>J+M 7.6, 8.8.3, 9.4</td>
-            <td>In-class quiz</td>
+            <td></td>
         </tr>
         <tr>
             <td>22</td>
             <td>11-05 Th</td>
             <td>Exam review</td>
             <td></td>
-            <td></td>
+            <td>In-class quiz</td>
         </tr>
         <tr>
             <td>23</td>
@@ -252,7 +252,7 @@ Fall 2026
         </tr>
         <tr>
             <td>29</td>
-            <td><em>12-10 Th<br/>2-3:50p</em></td>
+            <td>12-10 Th<br/>2-3:50p</td>
             <td><strong>Project presentations</strong></td>
             <td></td>
             <td><strong>Project report due 12-08</strong></td>
