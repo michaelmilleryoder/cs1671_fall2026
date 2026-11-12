@@ -168,6 +168,20 @@
     "text": "Acknowledgments\nThis assignment is adapted from Prof. Mark Yatskar and Prof. Lorraine Li."
   },
   {
+    "objectID": "crcd.html",
+    "href": "crcd.html",
+    "title": "CRCD resources and troubleshooting",
+    "section": "",
+    "text": "Last updated 2026-11-12.\nWe use Pitt’s Center for Research Computing and Data (CRCD) for a few things in this class: * In-class Jupyter notebooks * Running code to submit as part of some homework assignments * Running code and storing data for your projects\nHaving issues getting the CRCD resources for this class to work? Forget how to get started? This page is for you!"
+  },
+  {
+    "objectID": "crcd.html#common-issues",
+    "href": "crcd.html#common-issues",
+    "title": "CRCD resources and troubleshooting",
+    "section": "Common issues",
+    "text": "Common issues\n\nI can’t log in\nMake sure you type your Pitt username in lowercase. If you still can’t get in, send an email to the instructor. Especially if you registered late for the course or got on from a waitlist, your account might not be added to the class account yet.\n\n\nJupyterHub gives me a “Pending in queue…” message and then fails to launch\n\nIf you requested a CPU:\nHave you ever used the CRCD before, as part of a research project, for example? If so, you might have multiple allocations associated with your account. In the Account field when you launch JupyterHub, fill in the class account name: cs1671-2026f. If it still does not work, check to see if you have run out of space in your CRCD home directory (again, this would only happen if you have used the CRCD before). To do this, log into the CRCD through the command-line (see directions below). Run crc-quota to check how much storage you have left in your home directory. If it’s full, delete some files and try launching JupyterHub again.\n\n\nIf you requested a GPU:\nOther CRCD users may be using the GPU type you requested. Try requesting another type. The Titan X and 1080 GPUs are more plentiful than the L4 GPUs. If you have ever used the CRCD before this class, see the section above on things to try if you requested a CPU, as those issues may also apply.\n\n\n\nI get “package not found” errors when running the class notebooks\nYou likely don’t have the class environment loaded. To check, run a new cell with the following code:\nimport sys\nsys.path\nIf the class environment path (see above) is not displayed, you aren’t loading the class environment. Restart the server by going to File &gt; Hub Control Panel &gt; Stop My Server. Then restart it by clicking Launch Server or by clicking the class nbgitpuller link again (see above). Make sure you have the environment path copied exactly as it appears here, with no added spaces."
+  },
+  {
     "objectID": "hw2.html",
     "href": "hw2.html",
     "title": "Homework 2: Text classification",

@@ -1,0 +1,44 @@
+---
+title: "CRCD resources and troubleshooting"
+---
+
+*Last updated 2026-11-12.*
+
+We use Pitt's Center for Research Computing and Data (CRCD) for a few things in this class:
+* In-class Jupyter notebooks
+* Running code to submit as part of some homework assignments
+* Running code and storing data for your projects
+
+Having issues getting the CRCD resources for this class to work? Forget how to get started? This page is for you!
+
+# JupyterHub on the `teach` cluster
+To load in-class notebooks, click the [class nbgitpuller link](https://jupyter.crc.pitt.edu/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2Fmichaelmilleryoder%2Fcs1671_fall2026_jupyterhub&urlpath=lab%2Ftree%2Fcs1671_fall2026_jupyterhub%2F&branch=main).
+If you're making your own notebooks, feel free to log in directly at `jupyter.crc.pitt.edu`.
+
+To get the in-class notebooks to run, you'll want to load the class Python environment. The path to that environment is **/vast/cs1671-2026f/class-env/.pixi/envs/default**
+Make sure to type or copy it exactly as it is shown here and on the course homepage. Beware of copying it from the slides, as that can introduce spaces.
+
+## Common issues
+
+### I can't log in
+Make sure you type your Pitt username in **lowercase**. If you still can't get in, send an email to the instructor. Especially if you registered late for the course or got on from a waitlist, your account might not be added to the class account yet.
+
+### JupyterHub gives me a "Pending in queue..." message and then fails to launch
+
+#### If you requested a **CPU**:
+
+Have you ever used the CRCD before, as part of a research project, for example? If so, you might have multiple allocations associated with your account. In the **Account** field when you launch JupyterHub, fill in the class account name: **cs1671-2026f**.
+If it still does not work, check to see if you have run out of space in your CRCD home directory (again, this would only happen if you have used the CRCD before). To do this, log into the CRCD through the command-line (see directions below). Run `crc-quota` to check how much storage you have left in your home directory. If it's full, delete some files and try launching JupyterHub again.
+
+#### If you requested a **GPU**:
+Other CRCD users may be using the GPU type you requested. Try requesting another type. The Titan X and 1080 GPUs are more plentiful than the L4 GPUs. If you have ever used the CRCD before this class, see the section above on things to try if you requested a CPU, as those issues may also apply.
+
+### I get "package not found" errors when running the class notebooks
+You likely don't have the class environment loaded. To check, run a new cell with the following code:
+
+```
+import sys
+sys.path
+```
+
+If the class environment path (see above) is not displayed, you aren't loading the class environment. Restart the server by going to **File** > **Hub Control Panel** > **Stop My Server**. Then restart it by clicking **Launch Server** or by clicking the class nbgitpuller link again (see above). Make sure you have the environment path copied exactly as it appears here, with no added spaces.

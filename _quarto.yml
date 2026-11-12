@@ -17,6 +17,8 @@ website:
         text: HW2
       - href: hw3.qmd
         text: HW3
+      - href: crcd.qmd
+        text: CRCD
 
 format:
   html:
