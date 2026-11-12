@@ -216,7 +216,7 @@ Fall 2026
         <tr>
             <td>24</td>
             <td>11-12 Th</td>
-            <td>Machine translation</td>
+            <td><a href="slides/session24_cs1671_fall2026.pdf">Machine translation</a></td>
             <td>J+M 13-13.4, 13.6-12.8</td>
             <td></td>
         </tr>
