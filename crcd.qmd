@@ -28,6 +28,7 @@ Make sure you type your Pitt username in **lowercase**. If you still can't get i
 #### If you requested a **CPU**:
 
 Have you ever used the CRCD before, as part of a research project, for example? If so, you might have multiple allocations associated with your account. In the **Account** field when you launch JupyterHub, fill in the class account name: **cs1671-2026f**.
+
 If it still does not work, check to see if you have run out of space in your CRCD home directory (again, this would only happen if you have used the CRCD before). To do this, log into the CRCD through the command-line (see directions below). Run `crc-quota` to check how much storage you have left in your home directory. If it's full, delete some files and try launching JupyterHub again.
 
 #### If you requested a **GPU**:
